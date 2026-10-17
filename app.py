@@ -9,7 +9,7 @@ st.set_page_config(
     page_icon="🏏"
 )
 
-# Dark Broadcast Styling with Real Trophy Image Badges
+# Broadcast Style Dark Theme CSS
 st.markdown("""
 <style>
     .header-container {
@@ -44,7 +44,7 @@ st.markdown("""
         border: 1px solid #374151;
         border-radius: 12px;
         padding: 10px 16px;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -93,15 +93,15 @@ st.markdown("""
     .trophy-badge-container {
         display: inline-flex;
         align-items: center;
-        background: rgba(245, 158, 11, 0.12);
+        background: rgba(245, 158, 11, 0.15);
         border: 1px solid rgba(245, 158, 11, 0.4);
         padding: 2px 8px;
         border-radius: 12px;
         margin-left: 8px;
     }
     .trophy-pic {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
         object-fit: contain;
         margin-right: 5px;
     }
@@ -132,19 +132,10 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# IPL Official Tournament Logo & Real Gold Trophy Icon
 IPL_LOGO_URL = "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Indian_Premier_League_Official_Logo.svg/500px-Indian_Premier_League_Official_Logo.svg.png"
 TROPHY_ICON_URL = "https://cdn-icons-png.flaticon.com/512/861/861512.png"
 
-st.markdown(f"""
-<div class="header-container">
-    <img src="{IPL_LOGO_URL}" class="ipl-header-logo" alt="IPL Logo" />
-    <div class="header-text">
-        <h1>Indian Premier League Official Analytics Hub (2008 – 2026)</h1>
-        <p>Franchise standings, championship trophies, head-to-head records, match predictor, and superstar hall of fame.</p>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+st.markdown(f'<div class="header-container"><img src="{IPL_LOGO_URL}" class="ipl-header-logo" alt="IPL Logo" /><div class="header-text"><h1>Indian Premier League Official Analytics Hub (2008 – 2026)</h1><p>Franchise standings, championship trophies, head-to-head records, match predictor, and superstar statistics.</p></div></div>', unsafe_allow_html=True)
 
 # 10 Official Teams Data with Titles Count
 TEAMS_DATA = [
@@ -210,7 +201,7 @@ TEAMS_DATA = [
     }
 ]
 
-# All-Time IPL Finals History with Trophy Picture Support
+# Finals History
 IPL_FINALS_HISTORY = [
     {"Season": 2024, "Winner": "Kolkata Knight Riders", "Defeated (Against)": "Sunrisers Hyderabad", "Margin": "8 wickets", "Venue": "Chennai"},
     {"Season": 2023, "Winner": "Chennai Super Kings", "Defeated (Against)": "Gujarat Titans", "Margin": "5 wickets (DLS)", "Venue": "Ahmedabad"},
@@ -279,7 +270,7 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
 ])
 
 # ==========================================
-# TAB 1: STANDINGS WITH TROPHY PICTURE
+# TAB 1: STANDINGS WITH TROPHY PICTURE (FIXED SINGLE-LINE HTML)
 # ==========================================
 with tab1:
     st.subheader("All-Time Standings & Championship Winners (2008 – 2026)")
@@ -288,40 +279,13 @@ with tab1:
         for t in TEAMS_DATA:
             badge_class = "rank-badge-1" if t["rank"] == 1 else "rank-badge"
             
-            # Winner badge with real trophy picture
             if t["is_winner"]:
-                trophy_badge_html = f"""
-                <span class="trophy-badge-container">
-                    <img src="{TROPHY_ICON_URL}" class="trophy-pic" alt="Trophy" />
-                    <span class="trophy-text">{t['trophies_count']}</span>
-                </span>
-                """
+                trophy_badge_html = f'<span class="trophy-badge-container"><img src="{TROPHY_ICON_URL}" class="trophy-pic" alt="Trophy" /><span class="trophy-text">{t["trophies_count"]}</span></span>'
             else:
-                trophy_badge_html = f"""
-                <span style="background: rgba(156, 163, 175, 0.15); border: 1px solid #4b5563; padding: 2px 8px; border-radius: 12px; font-size: 11px; color: #9ca3af; margin-left: 8px;">
-                    {t['trophies_count']}
-                </span>
-                """
+                trophy_badge_html = f'<span style="background: rgba(156, 163, 175, 0.15); border: 1px solid #4b5563; padding: 2px 8px; border-radius: 12px; font-size: 11px; color: #9ca3af; margin-left: 8px;">{t["trophies_count"]}</span>'
 
-            card_html = f"""
-            <div class="team-card" style="border-left: 6px solid {t['color']};">
-                <div style="display: flex; align-items: center;">
-                    <div class="{badge_class}">{t['rank']}</div>
-                    <img src="{t['logo']}" class="team-logo-img" alt="{t['team']}" />
-                    <div>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap;">
-                            <span class="team-name">{t['team']}</span>
-                            {trophy_badge_html}
-                        </div>
-                        <div class="matches-subtext">Matches: {t['played']} | Won: {t['wins']} | Lost: {t['losses']} | NR: {t['nr']}</div>
-                    </div>
-                </div>
-                <div style="text-align: right;">
-                    <div class="rate-val">{t['rate']}%</div>
-                    <div class="rate-label">Win Rate</div>
-                </div>
-            </div>
-            """
+            # Clean single-line HTML rendering
+            card_html = f'<div class="team-card" style="border-left: 6px solid {t["color"]};"><div style="display: flex; align-items: center;"><div class="{badge_class}">{t["rank"]}</div><img src="{t["logo"]}" class="team-logo-img" alt="{t["team"]}" /><div><div style="display: flex; align-items: center; flex-wrap: wrap;"><span class="team-name">{t["team"]}</span>{trophy_badge_html}</div><div class="matches-subtext">Matches: {t["played"]} | Won: {t["wins"]} | Lost: {t["losses"]} | NR: {t["nr"]}</div></div></div><div style="text-align: right;"><div class="rate-val">{t["rate"]}%</div><div class="rate-label">Win Rate</div></div></div>'
             st.markdown(card_html, unsafe_allow_html=True)
             
     with col_r:
@@ -346,39 +310,16 @@ with tab2:
     c_win1, c_win2, c_win3 = st.columns(3)
     
     with c_win1:
-        st.markdown(f"""
-        <div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 12px; text-align: center;">
-            <img src="{TROPHY_ICON_URL}" width="40" style="margin-bottom: 5px;" />
-            <h4 style="margin: 0; color: #facc15;">Chennai Super Kings</h4>
-            <p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>5 Trophies</b></p>
-            <p style="margin: 0; font-size: 11px; color: #94a3b8;">2010, 2011, 2018, 2021, 2023</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(f'<div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 12px; text-align: center;"><img src="{TROPHY_ICON_URL}" width="40" style="margin-bottom: 5px;" /><h4 style="margin: 0; color: #facc15;">Chennai Super Kings</h4><p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>5 Trophies</b></p><p style="margin: 0; font-size: 11px; color: #94a3b8;">2010, 2011, 2018, 2021, 2023</p></div>', unsafe_allow_html=True)
         
     with c_win2:
-        st.markdown(f"""
-        <div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 12px; text-align: center;">
-            <img src="{TROPHY_ICON_URL}" width="40" style="margin-bottom: 5px;" />
-            <h4 style="margin: 0; color: #38bdf8;">Mumbai Indians</h4>
-            <p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>5 Trophies</b></p>
-            <p style="margin: 0; font-size: 11px; color: #94a3b8;">2013, 2015, 2017, 2019, 2020</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(f'<div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 12px; text-align: center;"><img src="{TROPHY_ICON_URL}" width="40" style="margin-bottom: 5px;" /><h4 style="margin: 0; color: #38bdf8;">Mumbai Indians</h4><p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>5 Trophies</b></p><p style="margin: 0; font-size: 11px; color: #94a3b8;">2013, 2015, 2017, 2019, 2020</p></div>', unsafe_allow_html=True)
         
     with c_win3:
-        st.markdown(f"""
-        <div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 12px; text-align: center;">
-            <img src="{TROPHY_ICON_URL}" width="40" style="margin-bottom: 5px;" />
-            <h4 style="margin: 0; color: #c084fc;">Kolkata Knight Riders</h4>
-            <p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>3 Trophies</b></p>
-            <p style="margin: 0; font-size: 11px; color: #94a3b8;">2012, 2014, 2024</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(f'<div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 12px; text-align: center;"><img src="{TROPHY_ICON_URL}" width="40" style="margin-bottom: 5px;" /><h4 style="margin: 0; color: #c084fc;">Kolkata Knight Riders</h4><p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>3 Trophies</b></p><p style="margin: 0; font-size: 11px; color: #94a3b8;">2012, 2014, 2024</p></div>', unsafe_allow_html=True)
 
     st.markdown("---")
     st.markdown("#### 📜 Match-by-Match Finals History (Winner vs Against)")
-    
-    # Render finals list with trophy image next to winner
     finals_df = pd.DataFrame(IPL_FINALS_HISTORY)
     st.dataframe(finals_df.set_index("Season"), use_container_width=True)
 
