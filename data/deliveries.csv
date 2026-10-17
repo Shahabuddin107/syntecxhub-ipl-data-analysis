@@ -1,0 +1,601 @@
+match_id,batter,ball,batsman_runs,total_runs
+1,AB de Villiers,1,0,0
+1,MS Dhoni,2,0,0
+1,V Kohli,3,1,6
+1,DA Warner,4,6,0
+1,V Kohli,5,2,0
+1,S Dhawan,6,2,1
+1,DA Warner,7,0,1
+1,RG Sharma,8,0,4
+1,DA Warner,9,1,0
+1,RG Sharma,10,1,0
+1,MS Dhoni,11,4,1
+1,S Dhawan,12,0,1
+1,AB de Villiers,13,6,1
+1,V Kohli,14,1,0
+1,RG Sharma,15,2,0
+1,RG Sharma,16,1,0
+1,S Dhawan,17,1,6
+1,V Kohli,18,1,0
+1,AB de Villiers,19,0,4
+1,V Kohli,20,1,1
+1,AB de Villiers,21,1,0
+1,DA Warner,22,0,0
+1,MS Dhoni,23,1,1
+1,S Dhawan,24,0,0
+1,V Kohli,25,0,6
+1,RG Sharma,26,0,0
+1,AB de Villiers,27,0,1
+1,V Kohli,28,4,1
+1,AB de Villiers,29,0,6
+1,V Kohli,30,0,4
+1,DA Warner,31,0,6
+1,MS Dhoni,32,1,1
+1,MS Dhoni,33,1,2
+1,RG Sharma,34,1,1
+1,DA Warner,35,4,4
+1,V Kohli,36,4,0
+1,S Dhawan,37,2,1
+1,MS Dhoni,38,1,0
+1,DA Warner,39,1,4
+1,V Kohli,40,0,1
+1,AB de Villiers,41,4,1
+1,MS Dhoni,42,0,1
+1,S Dhawan,43,1,1
+1,AB de Villiers,44,1,0
+1,V Kohli,45,1,1
+1,MS Dhoni,46,4,0
+1,RG Sharma,47,4,1
+1,RG Sharma,48,4,4
+1,RG Sharma,49,1,0
+1,V Kohli,50,1,0
+1,V Kohli,51,2,1
+1,S Dhawan,52,1,4
+1,DA Warner,53,4,2
+1,RG Sharma,54,0,0
+1,V Kohli,55,1,4
+1,RG Sharma,56,1,1
+1,V Kohli,57,1,0
+1,RG Sharma,58,0,1
+1,RG Sharma,59,0,6
+1,MS Dhoni,60,1,1
+2,RG Sharma,61,0,4
+2,AB de Villiers,62,0,0
+2,RG Sharma,63,1,1
+2,V Kohli,64,0,4
+2,DA Warner,65,1,1
+2,S Dhawan,66,1,2
+2,MS Dhoni,67,0,1
+2,S Dhawan,68,0,0
+2,RG Sharma,69,0,0
+2,DA Warner,70,0,4
+2,S Dhawan,71,0,0
+2,V Kohli,72,0,6
+2,V Kohli,73,4,0
+2,S Dhawan,74,1,1
+2,MS Dhoni,75,0,1
+2,AB de Villiers,76,1,0
+2,MS Dhoni,77,1,2
+2,V Kohli,78,1,0
+2,S Dhawan,79,0,1
+2,DA Warner,80,0,1
+2,DA Warner,81,0,0
+2,MS Dhoni,82,1,1
+2,RG Sharma,83,1,1
+2,MS Dhoni,84,2,1
+2,V Kohli,85,2,0
+2,RG Sharma,86,4,0
+2,RG Sharma,87,4,4
+2,DA Warner,88,2,0
+2,DA Warner,89,4,4
+2,S Dhawan,90,0,0
+2,RG Sharma,91,2,1
+2,RG Sharma,92,1,1
+2,V Kohli,93,1,0
+2,DA Warner,94,0,1
+2,MS Dhoni,95,1,0
+2,V Kohli,96,1,1
+2,RG Sharma,97,1,1
+2,MS Dhoni,98,1,0
+2,AB de Villiers,99,1,1
+2,DA Warner,100,0,0
+2,DA Warner,101,2,0
+2,V Kohli,102,4,0
+2,V Kohli,103,1,1
+2,DA Warner,104,1,1
+2,AB de Villiers,105,0,2
+2,MS Dhoni,106,1,4
+2,MS Dhoni,107,0,2
+2,AB de Villiers,108,2,1
+2,S Dhawan,109,2,0
+2,AB de Villiers,110,0,1
+2,AB de Villiers,111,0,0
+2,MS Dhoni,112,2,4
+2,DA Warner,113,2,1
+2,AB de Villiers,114,0,1
+2,DA Warner,115,4,1
+2,V Kohli,116,1,1
+2,RG Sharma,117,4,1
+2,RG Sharma,118,0,2
+2,MS Dhoni,119,2,0
+2,MS Dhoni,120,6,1
+3,RG Sharma,121,2,2
+3,S Dhawan,122,1,6
+3,DA Warner,123,1,6
+3,DA Warner,124,1,1
+3,MS Dhoni,125,1,0
+3,DA Warner,126,4,1
+3,RG Sharma,127,1,0
+3,V Kohli,128,1,0
+3,AB de Villiers,129,4,2
+3,MS Dhoni,130,1,0
+3,AB de Villiers,131,0,1
+3,S Dhawan,132,1,2
+3,DA Warner,133,1,0
+3,MS Dhoni,134,0,1
+3,DA Warner,135,1,6
+3,MS Dhoni,136,0,0
+3,V Kohli,137,4,1
+3,S Dhawan,138,1,0
+3,DA Warner,139,1,2
+3,V Kohli,140,0,2
+3,S Dhawan,141,0,0
+3,AB de Villiers,142,0,0
+3,V Kohli,143,1,1
+3,S Dhawan,144,1,4
+3,RG Sharma,145,1,0
+3,MS Dhoni,146,0,1
+3,MS Dhoni,147,1,1
+3,RG Sharma,148,2,0
+3,DA Warner,149,2,1
+3,V Kohli,150,2,1
+3,AB de Villiers,151,1,1
+3,DA Warner,152,4,0
+3,DA Warner,153,2,0
+3,S Dhawan,154,1,2
+3,RG Sharma,155,0,1
+3,V Kohli,156,1,0
+3,MS Dhoni,157,0,1
+3,MS Dhoni,158,1,1
+3,V Kohli,159,4,0
+3,S Dhawan,160,0,0
+3,S Dhawan,161,1,0
+3,RG Sharma,162,2,2
+3,AB de Villiers,163,1,0
+3,S Dhawan,164,0,1
+3,RG Sharma,165,6,0
+3,MS Dhoni,166,1,0
+3,MS Dhoni,167,1,0
+3,DA Warner,168,4,1
+3,MS Dhoni,169,0,2
+3,DA Warner,170,4,4
+3,RG Sharma,171,0,0
+3,S Dhawan,172,1,0
+3,AB de Villiers,173,0,0
+3,RG Sharma,174,0,1
+3,S Dhawan,175,2,1
+3,V Kohli,176,1,6
+3,MS Dhoni,177,1,1
+3,S Dhawan,178,4,1
+3,S Dhawan,179,0,0
+3,MS Dhoni,180,1,1
+4,DA Warner,181,2,0
+4,DA Warner,182,0,1
+4,RG Sharma,183,4,6
+4,S Dhawan,184,0,1
+4,V Kohli,185,1,4
+4,RG Sharma,186,1,1
+4,V Kohli,187,1,0
+4,V Kohli,188,0,0
+4,RG Sharma,189,6,0
+4,MS Dhoni,190,0,1
+4,S Dhawan,191,0,0
+4,RG Sharma,192,1,0
+4,DA Warner,193,2,1
+4,AB de Villiers,194,6,2
+4,S Dhawan,195,2,0
+4,V Kohli,196,0,2
+4,S Dhawan,197,4,1
+4,V Kohli,198,0,0
+4,DA Warner,199,0,4
+4,MS Dhoni,200,0,2
+4,AB de Villiers,201,0,6
+4,S Dhawan,202,1,1
+4,V Kohli,203,1,0
+4,S Dhawan,204,0,1
+4,DA Warner,205,0,0
+4,S Dhawan,206,1,0
+4,S Dhawan,207,0,1
+4,DA Warner,208,4,0
+4,DA Warner,209,0,0
+4,S Dhawan,210,1,0
+4,V Kohli,211,1,1
+4,MS Dhoni,212,1,4
+4,DA Warner,213,1,0
+4,V Kohli,214,6,1
+4,V Kohli,215,0,1
+4,AB de Villiers,216,1,0
+4,RG Sharma,217,0,0
+4,RG Sharma,218,1,6
+4,V Kohli,219,4,1
+4,DA Warner,220,4,0
+4,V Kohli,221,1,6
+4,S Dhawan,222,2,1
+4,MS Dhoni,223,6,1
+4,DA Warner,224,1,0
+4,MS Dhoni,225,0,1
+4,S Dhawan,226,4,4
+4,S Dhawan,227,1,0
+4,MS Dhoni,228,0,4
+4,DA Warner,229,4,4
+4,DA Warner,230,0,4
+4,MS Dhoni,231,1,2
+4,RG Sharma,232,1,0
+4,V Kohli,233,0,1
+4,V Kohli,234,4,1
+4,RG Sharma,235,1,0
+4,V Kohli,236,2,1
+4,MS Dhoni,237,1,0
+4,V Kohli,238,1,1
+4,MS Dhoni,239,2,1
+4,S Dhawan,240,0,1
+5,AB de Villiers,241,0,6
+5,V Kohli,242,2,1
+5,RG Sharma,243,1,0
+5,V Kohli,244,4,1
+5,MS Dhoni,245,0,6
+5,AB de Villiers,246,0,1
+5,RG Sharma,247,0,0
+5,MS Dhoni,248,0,0
+5,RG Sharma,249,1,6
+5,RG Sharma,250,0,0
+5,RG Sharma,251,0,0
+5,AB de Villiers,252,6,0
+5,RG Sharma,253,1,1
+5,DA Warner,254,0,0
+5,RG Sharma,255,0,4
+5,V Kohli,256,1,1
+5,DA Warner,257,0,1
+5,RG Sharma,258,1,0
+5,MS Dhoni,259,2,0
+5,MS Dhoni,260,1,6
+5,AB de Villiers,261,1,0
+5,DA Warner,262,0,1
+5,S Dhawan,263,0,0
+5,MS Dhoni,264,0,0
+5,MS Dhoni,265,1,0
+5,S Dhawan,266,0,0
+5,RG Sharma,267,0,6
+5,RG Sharma,268,1,2
+5,MS Dhoni,269,0,1
+5,AB de Villiers,270,1,1
+5,RG Sharma,271,2,2
+5,RG Sharma,272,2,1
+5,MS Dhoni,273,0,0
+5,RG Sharma,274,4,0
+5,MS Dhoni,275,1,0
+5,DA Warner,276,1,2
+5,S Dhawan,277,1,1
+5,S Dhawan,278,1,0
+5,V Kohli,279,0,1
+5,DA Warner,280,0,4
+5,V Kohli,281,1,1
+5,RG Sharma,282,4,1
+5,S Dhawan,283,0,1
+5,MS Dhoni,284,4,0
+5,AB de Villiers,285,1,1
+5,S Dhawan,286,0,6
+5,MS Dhoni,287,1,1
+5,V Kohli,288,0,0
+5,MS Dhoni,289,6,2
+5,RG Sharma,290,1,0
+5,S Dhawan,291,1,0
+5,RG Sharma,292,0,1
+5,S Dhawan,293,0,1
+5,MS Dhoni,294,2,6
+5,AB de Villiers,295,0,0
+5,DA Warner,296,1,1
+5,AB de Villiers,297,1,1
+5,V Kohli,298,1,0
+5,DA Warner,299,1,0
+5,MS Dhoni,300,1,1
+6,RG Sharma,301,6,0
+6,AB de Villiers,302,2,1
+6,AB de Villiers,303,0,1
+6,S Dhawan,304,2,1
+6,DA Warner,305,0,2
+6,MS Dhoni,306,0,2
+6,DA Warner,307,1,1
+6,S Dhawan,308,4,1
+6,AB de Villiers,309,1,0
+6,AB de Villiers,310,0,0
+6,S Dhawan,311,1,1
+6,V Kohli,312,1,2
+6,DA Warner,313,0,4
+6,V Kohli,314,0,0
+6,DA Warner,315,1,1
+6,V Kohli,316,1,4
+6,DA Warner,317,6,1
+6,DA Warner,318,1,1
+6,S Dhawan,319,4,1
+6,MS Dhoni,320,0,0
+6,MS Dhoni,321,0,4
+6,DA Warner,322,1,1
+6,V Kohli,323,1,1
+6,DA Warner,324,1,0
+6,AB de Villiers,325,0,1
+6,RG Sharma,326,2,4
+6,AB de Villiers,327,2,1
+6,MS Dhoni,328,4,1
+6,AB de Villiers,329,4,1
+6,V Kohli,330,1,2
+6,AB de Villiers,331,1,0
+6,RG Sharma,332,0,0
+6,DA Warner,333,1,4
+6,AB de Villiers,334,0,0
+6,S Dhawan,335,1,1
+6,DA Warner,336,2,6
+6,RG Sharma,337,2,6
+6,S Dhawan,338,0,4
+6,DA Warner,339,1,6
+6,AB de Villiers,340,0,1
+6,S Dhawan,341,0,1
+6,S Dhawan,342,6,1
+6,S Dhawan,343,1,2
+6,AB de Villiers,344,4,0
+6,S Dhawan,345,1,0
+6,V Kohli,346,2,1
+6,RG Sharma,347,4,4
+6,DA Warner,348,6,0
+6,AB de Villiers,349,0,0
+6,S Dhawan,350,0,1
+6,AB de Villiers,351,2,1
+6,MS Dhoni,352,1,1
+6,AB de Villiers,353,0,1
+6,MS Dhoni,354,4,2
+6,AB de Villiers,355,1,1
+6,MS Dhoni,356,0,2
+6,S Dhawan,357,0,0
+6,AB de Villiers,358,1,4
+6,RG Sharma,359,4,1
+6,AB de Villiers,360,1,0
+7,MS Dhoni,361,1,0
+7,AB de Villiers,362,2,4
+7,AB de Villiers,363,0,0
+7,AB de Villiers,364,6,1
+7,MS Dhoni,365,1,0
+7,MS Dhoni,366,4,1
+7,V Kohli,367,0,1
+7,V Kohli,368,6,0
+7,AB de Villiers,369,4,4
+7,AB de Villiers,370,1,0
+7,S Dhawan,371,0,1
+7,RG Sharma,372,0,0
+7,AB de Villiers,373,1,2
+7,RG Sharma,374,0,1
+7,MS Dhoni,375,1,2
+7,AB de Villiers,376,2,1
+7,MS Dhoni,377,1,4
+7,RG Sharma,378,0,0
+7,MS Dhoni,379,0,1
+7,MS Dhoni,380,0,2
+7,DA Warner,381,1,0
+7,MS Dhoni,382,1,0
+7,V Kohli,383,1,1
+7,MS Dhoni,384,2,0
+7,V Kohli,385,0,0
+7,V Kohli,386,0,6
+7,RG Sharma,387,0,1
+7,V Kohli,388,1,0
+7,AB de Villiers,389,2,0
+7,V Kohli,390,6,1
+7,V Kohli,391,1,0
+7,AB de Villiers,392,0,6
+7,RG Sharma,393,2,1
+7,DA Warner,394,4,4
+7,DA Warner,395,1,1
+7,DA Warner,396,1,1
+7,MS Dhoni,397,1,2
+7,DA Warner,398,1,2
+7,RG Sharma,399,0,1
+7,S Dhawan,400,6,0
+7,S Dhawan,401,0,0
+7,DA Warner,402,1,1
+7,MS Dhoni,403,2,1
+7,DA Warner,404,4,0
+7,S Dhawan,405,2,2
+7,DA Warner,406,1,1
+7,RG Sharma,407,0,6
+7,S Dhawan,408,1,1
+7,DA Warner,409,1,1
+7,S Dhawan,410,1,1
+7,RG Sharma,411,1,0
+7,S Dhawan,412,2,2
+7,DA Warner,413,2,0
+7,RG Sharma,414,0,4
+7,S Dhawan,415,4,2
+7,MS Dhoni,416,1,0
+7,V Kohli,417,0,1
+7,MS Dhoni,418,1,1
+7,S Dhawan,419,1,0
+7,RG Sharma,420,0,1
+8,DA Warner,421,1,0
+8,AB de Villiers,422,0,1
+8,MS Dhoni,423,1,0
+8,S Dhawan,424,6,0
+8,V Kohli,425,0,1
+8,V Kohli,426,1,0
+8,RG Sharma,427,6,4
+8,DA Warner,428,1,4
+8,DA Warner,429,1,0
+8,RG Sharma,430,1,1
+8,MS Dhoni,431,0,4
+8,AB de Villiers,432,1,2
+8,DA Warner,433,2,1
+8,S Dhawan,434,1,1
+8,DA Warner,435,1,0
+8,DA Warner,436,1,1
+8,S Dhawan,437,0,4
+8,RG Sharma,438,0,2
+8,MS Dhoni,439,0,0
+8,V Kohli,440,0,1
+8,RG Sharma,441,4,1
+8,MS Dhoni,442,6,0
+8,AB de Villiers,443,1,1
+8,V Kohli,444,0,1
+8,S Dhawan,445,0,0
+8,DA Warner,446,0,0
+8,AB de Villiers,447,1,1
+8,MS Dhoni,448,0,4
+8,S Dhawan,449,4,2
+8,S Dhawan,450,1,1
+8,DA Warner,451,1,2
+8,MS Dhoni,452,1,4
+8,AB de Villiers,453,1,4
+8,V Kohli,454,0,6
+8,AB de Villiers,455,4,6
+8,S Dhawan,456,1,4
+8,V Kohli,457,1,0
+8,MS Dhoni,458,4,2
+8,DA Warner,459,1,1
+8,AB de Villiers,460,1,1
+8,S Dhawan,461,0,0
+8,DA Warner,462,0,1
+8,MS Dhoni,463,4,4
+8,AB de Villiers,464,1,0
+8,AB de Villiers,465,6,1
+8,DA Warner,466,0,1
+8,RG Sharma,467,1,1
+8,MS Dhoni,468,0,1
+8,RG Sharma,469,1,1
+8,S Dhawan,470,0,1
+8,RG Sharma,471,0,0
+8,S Dhawan,472,2,0
+8,V Kohli,473,1,0
+8,MS Dhoni,474,0,0
+8,S Dhawan,475,1,0
+8,DA Warner,476,0,1
+8,MS Dhoni,477,0,1
+8,RG Sharma,478,0,4
+8,MS Dhoni,479,1,1
+8,S Dhawan,480,0,0
+9,MS Dhoni,481,1,0
+9,V Kohli,482,0,0
+9,MS Dhoni,483,1,1
+9,MS Dhoni,484,6,2
+9,MS Dhoni,485,0,1
+9,MS Dhoni,486,2,0
+9,S Dhawan,487,1,0
+9,MS Dhoni,488,1,1
+9,S Dhawan,489,0,4
+9,DA Warner,490,0,1
+9,DA Warner,491,1,1
+9,DA Warner,492,0,0
+9,S Dhawan,493,1,1
+9,S Dhawan,494,1,6
+9,AB de Villiers,495,1,1
+9,V Kohli,496,2,0
+9,MS Dhoni,497,2,4
+9,DA Warner,498,1,1
+9,AB de Villiers,499,0,2
+9,S Dhawan,500,2,1
+9,MS Dhoni,501,0,1
+9,MS Dhoni,502,0,0
+9,RG Sharma,503,1,0
+9,AB de Villiers,504,0,0
+9,MS Dhoni,505,4,0
+9,DA Warner,506,0,0
+9,DA Warner,507,1,1
+9,V Kohli,508,6,0
+9,DA Warner,509,0,0
+9,AB de Villiers,510,6,1
+9,S Dhawan,511,6,2
+9,RG Sharma,512,1,0
+9,V Kohli,513,1,1
+9,DA Warner,514,0,0
+9,RG Sharma,515,1,2
+9,RG Sharma,516,1,1
+9,AB de Villiers,517,0,0
+9,MS Dhoni,518,0,1
+9,S Dhawan,519,0,0
+9,MS Dhoni,520,0,1
+9,DA Warner,521,1,0
+9,S Dhawan,522,4,0
+9,DA Warner,523,1,1
+9,DA Warner,524,0,1
+9,MS Dhoni,525,1,1
+9,MS Dhoni,526,1,1
+9,MS Dhoni,527,1,0
+9,RG Sharma,528,0,1
+9,V Kohli,529,1,1
+9,DA Warner,530,0,4
+9,V Kohli,531,0,6
+9,V Kohli,532,2,0
+9,AB de Villiers,533,1,4
+9,DA Warner,534,0,0
+9,AB de Villiers,535,1,0
+9,AB de Villiers,536,0,2
+9,V Kohli,537,2,2
+9,DA Warner,538,2,0
+9,RG Sharma,539,1,0
+9,RG Sharma,540,1,1
+10,V Kohli,541,0,0
+10,DA Warner,542,0,1
+10,V Kohli,543,0,4
+10,RG Sharma,544,2,2
+10,RG Sharma,545,1,1
+10,DA Warner,546,0,1
+10,DA Warner,547,1,1
+10,S Dhawan,548,1,2
+10,MS Dhoni,549,1,0
+10,MS Dhoni,550,2,1
+10,S Dhawan,551,2,0
+10,AB de Villiers,552,0,0
+10,S Dhawan,553,1,1
+10,AB de Villiers,554,1,1
+10,AB de Villiers,555,6,0
+10,V Kohli,556,4,0
+10,RG Sharma,557,1,1
+10,V Kohli,558,0,1
+10,RG Sharma,559,1,1
+10,S Dhawan,560,0,0
+10,RG Sharma,561,2,4
+10,AB de Villiers,562,0,0
+10,V Kohli,563,4,0
+10,MS Dhoni,564,0,4
+10,V Kohli,565,0,0
+10,DA Warner,566,1,0
+10,V Kohli,567,4,1
+10,DA Warner,568,1,4
+10,RG Sharma,569,0,0
+10,DA Warner,570,0,0
+10,RG Sharma,571,1,1
+10,S Dhawan,572,0,1
+10,DA Warner,573,1,2
+10,AB de Villiers,574,1,0
+10,MS Dhoni,575,6,0
+10,AB de Villiers,576,0,1
+10,RG Sharma,577,0,0
+10,DA Warner,578,1,1
+10,S Dhawan,579,1,0
+10,AB de Villiers,580,0,4
+10,AB de Villiers,581,1,1
+10,V Kohli,582,0,0
+10,MS Dhoni,583,6,1
+10,DA Warner,584,1,1
+10,AB de Villiers,585,1,0
+10,S Dhawan,586,1,0
+10,RG Sharma,587,1,1
+10,MS Dhoni,588,1,1
+10,V Kohli,589,1,1
+10,V Kohli,590,2,0
+10,S Dhawan,591,0,1
+10,V Kohli,592,0,1
+10,DA Warner,593,0,1
+10,MS Dhoni,594,4,0
+10,DA Warner,595,1,0
+10,DA Warner,596,1,1
+10,V Kohli,597,2,6
+10,AB de Villiers,598,4,4
+10,V Kohli,599,1,1
+10,DA Warner,600,0,1
