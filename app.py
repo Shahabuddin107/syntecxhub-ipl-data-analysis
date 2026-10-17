@@ -9,7 +9,7 @@ st.set_page_config(
     page_icon="🏏"
 )
 
-# Dark Broadcast Styling
+# Dark Broadcast Styling with Real Trophy Image Badges
 st.markdown("""
 <style>
     .header-container {
@@ -90,15 +90,25 @@ st.markdown("""
         margin-right: 12px;
         filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
     }
-    .trophy-tag {
-        background: rgba(245, 158, 11, 0.15);
-        color: #fbbf24;
+    .trophy-badge-container {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(245, 158, 11, 0.12);
         border: 1px solid rgba(245, 158, 11, 0.4);
         padding: 2px 8px;
-        border-radius: 8px;
+        border-radius: 12px;
+        margin-left: 8px;
+    }
+    .trophy-pic {
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+        margin-right: 5px;
+    }
+    .trophy-text {
+        color: #fbbf24;
         font-size: 11px;
         font-weight: 700;
-        margin-left: 8px;
     }
     .team-name {
         font-size: 15px;
@@ -122,73 +132,85 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# IPL Official Tournament Logo & Real Gold Trophy Icon
 IPL_LOGO_URL = "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Indian_Premier_League_Official_Logo.svg/500px-Indian_Premier_League_Official_Logo.svg.png"
+TROPHY_ICON_URL = "https://cdn-icons-png.flaticon.com/512/861/861512.png"
 
 st.markdown(f"""
 <div class="header-container">
     <img src="{IPL_LOGO_URL}" class="ipl-header-logo" alt="IPL Logo" />
     <div class="header-text">
         <h1>Indian Premier League Official Analytics Hub (2008 – 2026)</h1>
-        <p>Franchise standings, trophy titles & final opponents, head-to-head metrics, match predictor, and superstar hall of fame.</p>
+        <p>Franchise standings, championship trophies, head-to-head records, match predictor, and superstar hall of fame.</p>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
-# 10 Official Teams Data with Trophy Details
+# 10 Official Teams Data with Titles Count
 TEAMS_DATA = [
     {
         "rank": 1, "team": "Chennai Super Kings", "short": "CSK",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/5G8eFjkPKNalIgL2FOtovg_500x500.png",
-        "played": 239, "wins": 138, "losses": 98, "nr": 3, "rate": 58.47, "color": "#facc15", "trophies": "🏆 x5 (2010, '11, '18, '21, '23)"
+        "played": 239, "wins": 138, "losses": 98, "nr": 3, "rate": 58.47, "color": "#facc15",
+        "is_winner": True, "trophies_count": "5 Titles (2010, '11, '18, '21, '23)"
     },
     {
         "rank": 2, "team": "Mumbai Indians", "short": "MI",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/HmiWb77BmJDs6sHvn77v_Q_500x500.png",
-        "played": 261, "wins": 144, "losses": 113, "nr": 4, "rate": 56.03, "color": "#0284c7", "trophies": "🏆 x5 (2013, '15, '17, '19, '20)"
+        "played": 261, "wins": 144, "losses": 113, "nr": 4, "rate": 56.03, "color": "#0284c7",
+        "is_winner": True, "trophies_count": "5 Titles (2013, '15, '17, '19, '20)"
     },
     {
         "rank": 3, "team": "Kolkata Knight Riders", "short": "KKR",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/bV4wF2dFs6IPc2BMtjgGZw_500x500.png",
-        "played": 252, "wins": 130, "losses": 117, "nr": 5, "rate": 52.63, "color": "#7c3aed", "trophies": "🏆 x3 (2012, '14, '24)"
+        "played": 252, "wins": 130, "losses": 117, "nr": 5, "rate": 52.63, "color": "#7c3aed",
+        "is_winner": True, "trophies_count": "3 Titles (2012, '14, '24)"
     },
     {
         "rank": 4, "team": "Gujarat Titans", "short": "GT",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/aTE8G7q-OcAobWvDd6sizQ_500x500.png",
-        "played": 45, "wins": 28, "losses": 17, "nr": 0, "rate": 62.22, "color": "#1e293b", "trophies": "🏆 x1 (2022)"
+        "played": 45, "wins": 28, "losses": 17, "nr": 0, "rate": 62.22, "color": "#1e293b",
+        "is_winner": True, "trophies_count": "1 Title (2022)"
     },
     {
         "rank": 5, "team": "Lucknow Super Giants", "short": "LSG",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/OqrL0ztLy13FBpvuF6GCBQ_500x500.png",
-        "played": 44, "wins": 24, "losses": 19, "nr": 1, "rate": 55.81, "color": "#06b6d4", "trophies": "Playoffs ('22, '23)"
+        "played": 44, "wins": 24, "losses": 19, "nr": 1, "rate": 55.81, "color": "#06b6d4",
+        "is_winner": False, "trophies_count": "Playoffs ('22, '23)"
     },
     {
         "rank": 6, "team": "Rajasthan Royals", "short": "RR",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/GqIU6xhQAnCpy_Cbr2LZRA_500x500.png",
-        "played": 222, "wins": 110, "losses": 106, "nr": 6, "rate": 50.93, "color": "#ec4899", "trophies": "🏆 x1 (2008)"
+        "played": 222, "wins": 110, "losses": 106, "nr": 6, "rate": 50.93, "color": "#ec4899",
+        "is_winner": True, "trophies_count": "1 Title (2008)"
     },
     {
         "rank": 7, "team": "Royal Challengers Bengaluru", "short": "RCB",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/xUS54-BA0dFZPMtbCiHkzQ_500x500.png",
-        "played": 256, "wins": 121, "losses": 128, "nr": 7, "rate": 48.59, "color": "#ef4444", "trophies": "Runners-up ('09, '11, '16)"
+        "played": 256, "wins": 121, "losses": 128, "nr": 7, "rate": 48.59, "color": "#ef4444",
+        "is_winner": False, "trophies_count": "Finalists ('09, '11, '16)"
     },
     {
         "rank": 8, "team": "Sunrisers Hyderabad", "short": "SRH",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/W0OCBYc05c5MFMrctF62kg_500x500.png",
-        "played": 182, "wins": 87, "losses": 91, "nr": 4, "rate": 48.88, "color": "#f97316", "trophies": "🏆 x1 (2016)"
+        "played": 182, "wins": 87, "losses": 91, "nr": 4, "rate": 48.88, "color": "#f97316",
+        "is_winner": True, "trophies_count": "1 Title (2016) | DC '09"
     },
     {
         "rank": 9, "team": "Delhi Capitals", "short": "DC",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/HzUX6_c8j7pwBCetmct2FQ_500x500.png",
-        "played": 252, "wins": 112, "losses": 134, "nr": 6, "rate": 45.53, "color": "#3b82f6", "trophies": "Runners-up ('20)"
+        "played": 252, "wins": 112, "losses": 134, "nr": 6, "rate": 45.53, "color": "#3b82f6",
+        "is_winner": False, "trophies_count": "Finalists ('20)"
     },
     {
         "rank": 10, "team": "Punjab Kings", "short": "PBKS",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/XUAb4iA3XozYbH_cXQCryQ_500x500.png",
-        "played": 246, "wins": 109, "losses": 133, "nr": 4, "rate": 45.04, "color": "#dc2626", "trophies": "Runners-up ('14)"
+        "played": 246, "wins": 109, "losses": 133, "nr": 4, "rate": 45.04, "color": "#dc2626",
+        "is_winner": False, "trophies_count": "Finalists ('14)"
     }
 ]
 
-# All-Time IPL Finals History (Season, Winner, Runner-Up/Against, Margin, Venue)
+# All-Time IPL Finals History with Trophy Picture Support
 IPL_FINALS_HISTORY = [
     {"Season": 2024, "Winner": "Kolkata Knight Riders", "Defeated (Against)": "Sunrisers Hyderabad", "Margin": "8 wickets", "Venue": "Chennai"},
     {"Season": 2023, "Winner": "Chennai Super Kings", "Defeated (Against)": "Gujarat Titans", "Margin": "5 wickets (DLS)", "Venue": "Ahmedabad"},
@@ -209,17 +231,7 @@ IPL_FINALS_HISTORY = [
     {"Season": 2008, "Winner": "Rajasthan Royals", "Defeated (Against)": "Chennai Super Kings", "Margin": "3 wickets", "Venue": "Navi Mumbai"}
 ]
 
-# Team Trophy Aggregation (Total titles & list of beaten teams)
-TEAM_TROPHY_SUMMARY = [
-    {"Team": "Chennai Super Kings", "Titles": 5, "Years Won": "2010, 2011, 2018, 2021, 2023", "Finals Won Against": "MI (2010), RCB (2011), SRH (2018), KKR (2021), GT (2023)"},
-    {"Team": "Mumbai Indians", "Titles": 5, "Years Won": "2013, 2015, 2017, 2019, 2020", "Finals Won Against": "CSK (2013, '15, '19), RPS (2017), DC (2020)"},
-    {"Team": "Kolkata Knight Riders", "Titles": 3, "Years Won": "2012, 2014, 2024", "Finals Won Against": "CSK (2012), PBKS/KXIP (2014), SRH (2024)"},
-    {"Team": "Sunrisers Hyderabad / DC", "Titles": 2, "Years Won": "2009, 2016", "Finals Won Against": "RCB (2009 as Deccan Chargers), RCB (2016 as SRH)"},
-    {"Team": "Rajasthan Royals", "Titles": 1, "Years Won": "2008", "Finals Won Against": "CSK (2008)"},
-    {"Team": "Gujarat Titans", "Titles": 1, "Years Won": "2022", "Finals Won Against": "RR (2022)"}
-]
-
-# Head-to-Head Data
+# Head-to-Head Records
 H2H_DATA = {
     "Chennai Super Kings": [
         {"Opponent": "Mumbai Indians", "Played": 36, "Won": 16, "Lost": 20},
@@ -245,7 +257,7 @@ H2H_DATA = {
     ]
 }
 
-# Bowlers All-Time Database
+# Bowlers Data
 BOWLERS_DATA = [
     {"Player": "Yuzvendra Chahal", "Wickets": 205, "Matches": 160, "Economy": 7.66, "Best": "5/40"},
     {"Player": "Piyush Chawla", "Wickets": 192, "Matches": 192, "Economy": 7.96, "Best": "4/17"},
@@ -257,10 +269,9 @@ BOWLERS_DATA = [
     {"Player": "Rashid Khan", "Wickets": 149, "Matches": 121, "Economy": 6.82, "Best": "4/24"}
 ]
 
-# Tabs Configuration
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-    "🏆 Official Standings & Trophies",
-    "🥇 IPL Finals History (All Winners vs Against)",
+    "🏆 Official Standings & Trophy Badges",
+    "🥇 IPL Finals History & Winners",
     "⚔️ Head-to-Head",
     "🎯 Bowlers Analytics",
     "🧢 Orange & Purple Caps",
@@ -268,23 +279,39 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
 ])
 
 # ==========================================
-# TAB 1: STANDINGS
+# TAB 1: STANDINGS WITH TROPHY PICTURE
 # ==========================================
 with tab1:
-    st.subheader("All-Time Standings & Championship Titles (2008 – 2026)")
-    col_l, col_r = st.columns([1.6, 1])
+    st.subheader("All-Time Standings & Championship Winners (2008 – 2026)")
+    col_l, col_r = st.columns([1.65, 1])
     with col_l:
         for t in TEAMS_DATA:
             badge_class = "rank-badge-1" if t["rank"] == 1 else "rank-badge"
+            
+            # Winner badge with real trophy picture
+            if t["is_winner"]:
+                trophy_badge_html = f"""
+                <span class="trophy-badge-container">
+                    <img src="{TROPHY_ICON_URL}" class="trophy-pic" alt="Trophy" />
+                    <span class="trophy-text">{t['trophies_count']}</span>
+                </span>
+                """
+            else:
+                trophy_badge_html = f"""
+                <span style="background: rgba(156, 163, 175, 0.15); border: 1px solid #4b5563; padding: 2px 8px; border-radius: 12px; font-size: 11px; color: #9ca3af; margin-left: 8px;">
+                    {t['trophies_count']}
+                </span>
+                """
+
             card_html = f"""
             <div class="team-card" style="border-left: 6px solid {t['color']};">
                 <div style="display: flex; align-items: center;">
                     <div class="{badge_class}">{t['rank']}</div>
                     <img src="{t['logo']}" class="team-logo-img" alt="{t['team']}" />
                     <div>
-                        <div style="display: flex; align-items: center;">
+                        <div style="display: flex; align-items: center; flex-wrap: wrap;">
                             <span class="team-name">{t['team']}</span>
-                            <span class="trophy-tag">{t['trophies']}</span>
+                            {trophy_badge_html}
                         </div>
                         <div class="matches-subtext">Matches: {t['played']} | Won: {t['wins']} | Lost: {t['losses']} | NR: {t['nr']}</div>
                     </div>
@@ -296,6 +323,7 @@ with tab1:
             </div>
             """
             st.markdown(card_html, unsafe_allow_html=True)
+            
     with col_r:
         df_teams = pd.DataFrame(TEAMS_DATA)
         fig, ax = plt.subplots(figsize=(6, 8.5))
@@ -309,16 +337,48 @@ with tab1:
         st.pyplot(fig)
 
 # ==========================================
-# TAB 2: IPL FINALS HISTORY (WINNERS VS AGAINST)
+# TAB 2: IPL FINALS & TROPHY PICTURE TABLE
 # ==========================================
 with tab2:
-    st.subheader("🥇 Kis Team Ne Kitni Trophy Jeeti & Kiske Against Jeeti")
+    st.subheader("🥇 IPL Finals History: Champion Winners with Trophies")
     
-    st.markdown("#### 🏆 Franchise Championship Summary")
-    st.dataframe(pd.DataFrame(TEAM_TROPHY_SUMMARY).set_index("Team"), use_container_width=True)
+    st.markdown("#### 🏆 All-Time Champions Cards")
+    c_win1, c_win2, c_win3 = st.columns(3)
     
+    with c_win1:
+        st.markdown(f"""
+        <div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 12px; text-align: center;">
+            <img src="{TROPHY_ICON_URL}" width="40" style="margin-bottom: 5px;" />
+            <h4 style="margin: 0; color: #facc15;">Chennai Super Kings</h4>
+            <p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>5 Trophies</b></p>
+            <p style="margin: 0; font-size: 11px; color: #94a3b8;">2010, 2011, 2018, 2021, 2023</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+    with c_win2:
+        st.markdown(f"""
+        <div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 12px; text-align: center;">
+            <img src="{TROPHY_ICON_URL}" width="40" style="margin-bottom: 5px;" />
+            <h4 style="margin: 0; color: #38bdf8;">Mumbai Indians</h4>
+            <p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>5 Trophies</b></p>
+            <p style="margin: 0; font-size: 11px; color: #94a3b8;">2013, 2015, 2017, 2019, 2020</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+    with c_win3:
+        st.markdown(f"""
+        <div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 12px; text-align: center;">
+            <img src="{TROPHY_ICON_URL}" width="40" style="margin-bottom: 5px;" />
+            <h4 style="margin: 0; color: #c084fc;">Kolkata Knight Riders</h4>
+            <p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>3 Trophies</b></p>
+            <p style="margin: 0; font-size: 11px; color: #94a3b8;">2012, 2014, 2024</p>
+        </div>
+        """, unsafe_allow_html=True)
+
     st.markdown("---")
-    st.markdown("#### 📜 Complete Final Matches History (2008 – Present)")
+    st.markdown("#### 📜 Match-by-Match Finals History (Winner vs Against)")
+    
+    # Render finals list with trophy image next to winner
     finals_df = pd.DataFrame(IPL_FINALS_HISTORY)
     st.dataframe(finals_df.set_index("Season"), use_container_width=True)
 
