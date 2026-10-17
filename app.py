@@ -12,6 +12,7 @@ st.set_page_config(
 
 # 1. Backend Database Setup
 bk.init_database()
+st.sidebar.success("✅ SQLite Database Connected & Synced!")
 
 # 2. Database se direct data fetch ho raha hai
 df_teams = bk.fetch_all_teams()
