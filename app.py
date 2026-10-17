@@ -135,70 +135,92 @@ st.markdown("""
 
 IPL_LOGO_URL = "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Indian_Premier_League_Official_Logo.svg/500px-Indian_Premier_League_Official_Logo.svg.png"
 
-st.markdown(f'<div class="header-container"><img src="{IPL_LOGO_URL}" class="ipl-header-logo" alt="IPL Logo" /><div class="header-text"><h1>Indian Premier League Official Analytics Hub (2008 – 2026)</h1><p>Franchise standings, championship trophies, player strike rates, head-to-head records, and match predictor.</p></div></div>', unsafe_allow_html=True)
+st.markdown(f'<div class="header-container"><img src="{IPL_LOGO_URL}" class="ipl-header-logo" alt="IPL Logo" /><div class="header-text"><h1>Indian Premier League Official Analytics Hub (2008 – 2026)</h1><p>Franchise standings, phase run-rates, stadium analytics, head-to-head records, and match predictor.</p></div></div>', unsafe_allow_html=True)
 
-# 10 Official Teams Data
+# 10 Official Teams Data with Home Venues
 TEAMS_DATA = [
     {
         "rank": 1, "team": "Chennai Super Kings", "short": "CSK",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/5G8eFjkPKNalIgL2FOtovg_500x500.png",
         "played": 239, "wins": 138, "losses": 98, "nr": 3, "rate": 58.47, "color": "#facc15",
-        "is_winner": True, "trophies_count": "5 Titles (2010, '11, '18, '21, '23)"
+        "is_winner": True, "trophies_count": "5 Titles (2010, '11, '18, '21, '23)",
+        "venue": "MA Chidambaram Stadium, Chennai", "powerplay_rr": 8.14, "middle_rr": 7.95, "death_rr": 10.92
     },
     {
         "rank": 2, "team": "Mumbai Indians", "short": "MI",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/HmiWb77BmJDs6sHvn77v_Q_500x500.png",
         "played": 261, "wins": 144, "losses": 113, "nr": 4, "rate": 56.03, "color": "#0284c7",
-        "is_winner": True, "trophies_count": "5 Titles (2013, '15, '17, '19, '20)"
+        "is_winner": True, "trophies_count": "5 Titles (2013, '15, '17, '19, '20)",
+        "venue": "Wankhede Stadium, Mumbai", "powerplay_rr": 8.28, "middle_rr": 8.12, "death_rr": 11.15
     },
     {
         "rank": 3, "team": "Kolkata Knight Riders", "short": "KKR",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/bV4wF2dFs6IPc2BMtjgGZw_500x500.png",
         "played": 252, "wins": 130, "losses": 117, "nr": 5, "rate": 52.63, "color": "#7c3aed",
-        "is_winner": True, "trophies_count": "3 Titles (2012, '14, '24)"
+        "is_winner": True, "trophies_count": "3 Titles (2012, '14, '24)",
+        "venue": "Eden Gardens, Kolkata", "powerplay_rr": 8.52, "middle_rr": 8.04, "death_rr": 10.85
     },
     {
         "rank": 4, "team": "Gujarat Titans", "short": "GT",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/aTE8G7q-OcAobWvDd6sizQ_500x500.png",
         "played": 45, "wins": 28, "losses": 17, "nr": 0, "rate": 62.22, "color": "#1e293b",
-        "is_winner": True, "trophies_count": "1 Title (2022)"
+        "is_winner": True, "trophies_count": "1 Title (2022)",
+        "venue": "Narendra Modi Stadium, Ahmedabad", "powerplay_rr": 8.42, "middle_rr": 8.35, "death_rr": 11.20
     },
     {
         "rank": 5, "team": "Lucknow Super Giants", "short": "LSG",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/OqrL0ztLy13FBpvuF6GCBQ_500x500.png",
         "played": 44, "wins": 24, "losses": 19, "nr": 1, "rate": 55.81, "color": "#06b6d4",
-        "is_winner": False, "trophies_count": "Playoffs ('22, '23)"
+        "is_winner": False, "trophies_count": "Playoffs ('22, '23)",
+        "venue": "Ekana Stadium, Lucknow", "powerplay_rr": 8.10, "middle_rr": 7.82, "death_rr": 10.45
     },
     {
         "rank": 6, "team": "Rajasthan Royals", "short": "RR",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/GqIU6xhQAnCpy_Cbr2LZRA_500x500.png",
         "played": 222, "wins": 110, "losses": 106, "nr": 6, "rate": 50.93, "color": "#ec4899",
-        "is_winner": True, "trophies_count": "1 Title (2008)"
+        "is_winner": True, "trophies_count": "1 Title (2008)",
+        "venue": "Sawai Mansingh Stadium, Jaipur", "powerplay_rr": 8.25, "middle_rr": 7.98, "death_rr": 10.60
     },
     {
         "rank": 7, "team": "Royal Challengers Bengaluru", "short": "RCB",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/xUS54-BA0dFZPMtbCiHkzQ_500x500.png",
         "played": 256, "wins": 121, "losses": 128, "nr": 7, "rate": 48.59, "color": "#ef4444",
-        "is_winner": False, "trophies_count": "Finalists ('09, '11, '16)"
+        "is_winner": False, "trophies_count": "Finalists ('09, '11, '16)",
+        "venue": "M. Chinnaswamy Stadium, Bengaluru", "powerplay_rr": 8.45, "middle_rr": 8.20, "death_rr": 11.40
     },
     {
         "rank": 8, "team": "Sunrisers Hyderabad", "short": "SRH",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/W0OCBYc05c5MFMrctF62kg_500x500.png",
         "played": 182, "wins": 87, "losses": 91, "nr": 4, "rate": 48.88, "color": "#f97316",
-        "is_winner": True, "trophies_count": "1 Title (2016) | DC '09"
+        "is_winner": True, "trophies_count": "1 Title (2016) | DC '09",
+        "venue": "Rajiv Gandhi Stadium, Hyderabad", "powerplay_rr": 8.70, "middle_rr": 8.15, "death_rr": 11.05
     },
     {
         "rank": 9, "team": "Delhi Capitals", "short": "DC",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/HzUX6_c8j7pwBCetmct2FQ_500x500.png",
         "played": 252, "wins": 112, "losses": 134, "nr": 6, "rate": 45.53, "color": "#3b82f6",
-        "is_winner": False, "trophies_count": "Finalists ('20)"
+        "is_winner": False, "trophies_count": "Finalists ('20)",
+        "venue": "Arun Jaitley Stadium, Delhi", "powerplay_rr": 8.32, "middle_rr": 7.90, "death_rr": 10.55
     },
     {
         "rank": 10, "team": "Punjab Kings", "short": "PBKS",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/XUAb4iA3XozYbH_cXQCryQ_500x500.png",
         "played": 246, "wins": 109, "losses": 133, "nr": 4, "rate": 45.04, "color": "#dc2626",
-        "is_winner": False, "trophies_count": "Finalists ('14)"
+        "is_winner": False, "trophies_count": "Finalists ('14)",
+        "venue": "PCA New Stadium, Mullanpur", "powerplay_rr": 8.30, "middle_rr": 7.92, "death_rr": 10.70
     }
+]
+
+# Stadium Analytics Database
+VENUE_DATA = [
+    {"Stadium": "Wankhede Stadium, Mumbai", "Matches": 116, "Bat 1st Win %": 46.5, "Chasing Win %": 53.5, "Avg 1st Innings": 169, "Highest Chased": 214},
+    {"Stadium": "M. Chinnaswamy Stadium, Bengaluru", "Matches": 94, "Bat 1st Win %": 43.6, "Chasing Win %": 56.4, "Avg 1st Innings": 172, "Highest Chased": 213},
+    {"Stadium": "MA Chidambaram Stadium, Chennai", "Matches": 85, "Bat 1st Win %": 57.6, "Chasing Win %": 42.4, "Avg 1st Innings": 164, "Highest Chased": 208},
+    {"Stadium": "Eden Gardens, Kolkata", "Matches": 93, "Bat 1st Win %": 42.0, "Chasing Win %": 58.0, "Avg 1st Innings": 166, "Highest Chased": 262},
+    {"Stadium": "Narendra Modi Stadium, Ahmedabad", "Matches": 36, "Bat 1st Win %": 47.2, "Chasing Win %": 52.8, "Avg 1st Innings": 174, "Highest Chased": 207},
+    {"Stadium": "Rajiv Gandhi Stadium, Hyderabad", "Matches": 77, "Bat 1st Win %": 44.1, "Chasing Win %": 55.9, "Avg 1st Innings": 162, "Highest Chased": 215},
+    {"Stadium": "Arun Jaitley Stadium, Delhi", "Matches": 89, "Bat 1st Win %": 45.0, "Chasing Win %": 55.0, "Avg 1st Innings": 165, "Highest Chased": 219},
+    {"Stadium": "Sawai Mansingh Stadium, Jaipur", "Matches": 57, "Bat 1st Win %": 36.8, "Chasing Win %": 63.2, "Avg 1st Innings": 160, "Highest Chased": 217}
 ]
 
 # Finals History
@@ -265,9 +287,7 @@ PLAYER_DATABASE = {
     "Sanju Samson": {"Total Runs": 4419, "Balls": 3181, "Strike Rate": 138.92, "4s": 359, "6s": 206, "Highest Score": 119, "Span": "2013-2024"},
     "Shubman Gill": {"Total Runs": 3216, "Balls": 2370, "Strike Rate": 135.70, "4s": 313, "6s": 95, "Highest Score": 129, "Span": "2018-2024"},
     "Hardik Pandya": {"Total Runs": 2525, "Balls": 1731, "Strike Rate": 145.87, "4s": 187, "6s": 139, "Highest Score": 91, "Span": "2015-2024"},
-    "Jos Buttler": {"Total Runs": 3582, "Balls": 2429, "Strike Rate": 147.47, "4s": 359, "6s": 165, "Highest Score": 124, "Span": "2016-2024"},
-    "Faf du Plessis": {"Total Runs": 4571, "Balls": 3354, "Strike Rate": 136.28, "4s": 420, "6s": 165, "Highest Score": 96, "Span": "2012-2024"},
-    "Glenn Maxwell": {"Total Runs": 2771, "Balls": 1764, "Strike Rate": 157.09, "4s": 230, "6s": 162, "Highest Score": 95, "Span": "2012-2024"}
+    "Jos Buttler": {"Total Runs": 3582, "Balls": 2429, "Strike Rate": 147.47, "4s": 359, "6s": 165, "Highest Score": 124, "Span": "2016-2024"}
 }
 
 # Bowlers Data
@@ -282,13 +302,14 @@ BOWLERS_DATA = [
     {"Player": "Rashid Khan", "Wickets": 149, "Matches": 121, "Economy": 6.82, "Best": "4/24"}
 ]
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
     "🏆 Standings & Trophies",
+    "⚡ All Teams Phase Breakdown",
+    "🏟️ Stadium Analytics",
     "👥 Player Head-to-Head",
     "⚡ Strike Rate & Run Leaders",
     "🥇 Finals History",
     "⚔️ Team Head-to-Head",
-    "🎯 Bowlers Analytics",
     "🔮 Match Predictor"
 ])
 
@@ -307,7 +328,7 @@ with tab1:
             else:
                 trophy_badge_html = f'<span style="background: rgba(156, 163, 175, 0.15); border: 1px solid #4b5563; padding: 2px 8px; border-radius: 12px; font-size: 11px; color: #9ca3af; margin-left: 8px;">{t["trophies_count"]}</span>'
 
-            card_html = f'<div class="team-card" style="border-left: 6px solid {t["color"]};"><div style="display: flex; align-items: center;"><div class="{badge_class}">{t["rank"]}</div><img src="{t["logo"]}" class="team-logo-img" alt="{t["team"]}" /><div><div style="display: flex; align-items: center; flex-wrap: wrap;"><span class="team-name">{t["team"]}</span>{trophy_badge_html}</div><div class="matches-subtext">Matches: {t["played"]} | Won: {t["wins"]} | Lost: {t["losses"]} | NR: {t["nr"]}</div></div></div><div style="text-align: right;"><div class="rate-val">{t["rate"]}%</div><div class="rate-label">Win Rate</div></div></div>'
+            card_html = f'<div class="team-card" style="border-left: 6px solid {t["color"]};"><div style="display: flex; align-items: center;"><div class="{badge_class}">{t["rank"]}</div><img src="{t["logo"]}" class="team-logo-img" alt="{t["team"]}" /><div><div style="display: flex; align-items: center; flex-wrap: wrap;"><span class="team-name">{t["team"]}</span>{trophy_badge_html}</div><div class="matches-subtext">Matches: {t["played"]} | Won: {t["wins"]} | Lost: {t["losses"]} | Home: {t["venue"].split(",")[0]}</div></div></div><div style="text-align: right;"><div class="rate-val">{t["rate"]}%</div><div class="rate-label">Win Rate</div></div></div>'
             st.markdown(card_html, unsafe_allow_html=True)
             
     with col_r:
@@ -323,9 +344,62 @@ with tab1:
         st.pyplot(fig)
 
 # ==========================================
-# TAB 2: PLAYER HEAD-TO-HEAD COMPARISON
+# TAB 2: ALL TEAMS PHASE BREAKDOWN (NEW)
 # ==========================================
 with tab2:
+    st.subheader("⚡ All 10 Teams: Powerplay, Middle & Death Overs Run Rate")
+    st.markdown("Analyze how aggressively each franchise scores across different match phases.")
+    
+    phase_df = pd.DataFrame([
+        {
+            "Team": t["team"],
+            "Short": t["short"],
+            "Powerplay (1-6)": t["powerplay_rr"],
+            "Middle Overs (7-15)": t["middle_rr"],
+            "Death Overs (16-20)": t["death_rr"]
+        } for t in TEAMS_DATA
+    ])
+    
+    st.dataframe(phase_df.set_index("Team"), use_container_width=True)
+    
+    col_p1, col_p2 = st.columns(2)
+    with col_p1:
+        st.markdown("#### 💥 Powerplay Aggression (Run Rate)")
+        fig_pp, ax_pp = plt.subplots(figsize=(7, 4.5))
+        sns.barplot(data=phase_df.sort_values(by="Powerplay (1-6)", ascending=False), x="Powerplay (1-6)", y="Short", palette="flare", ax=ax_pp)
+        ax_pp.set_xlim(7.5, 9.2)
+        ax_pp.set_xlabel("Run Rate per Over")
+        st.pyplot(fig_pp)
+        
+    with col_p2:
+        st.markdown("#### 🔥 Death Overs Finishing Power (Run Rate)")
+        fig_d, ax_d = plt.subplots(figsize=(7, 4.5))
+        sns.barplot(data=phase_df.sort_values(by="Death Overs (16-20)", ascending=False), x="Death Overs (16-20)", y="Short", palette="crest", ax=ax_d)
+        ax_d.set_xlim(9.5, 12.0)
+        ax_d.set_xlabel("Run Rate per Over")
+        st.pyplot(fig_d)
+
+# ==========================================
+# TAB 3: STADIUM & VENUE ANALYTICS (NEW)
+# ==========================================
+with tab3:
+    st.subheader("🏟️ Stadium Analytics: Batting 1st vs Chasing Win Rates")
+    v_df = pd.DataFrame(VENUE_DATA)
+    
+    st.dataframe(v_df.set_index("Stadium"), use_container_width=True)
+    
+    sel_venue = st.selectbox("Select Stadium for Deep Insights:", [v["Stadium"] for v in VENUE_DATA])
+    target_v = next(item for item in VENUE_DATA if item["Stadium"] == sel_venue)
+    
+    col_v1, col_v2, col_v3 = st.columns(3)
+    col_v1.metric("Total Matches Played", target_v["Matches"])
+    col_v2.metric("Chasing Team Win %", f"{target_v['Chasing Win %']}%")
+    col_v3.metric("Avg 1st Innings Score", target_v["Avg 1st Innings"])
+
+# ==========================================
+# TAB 4: PLAYER HEAD-TO-HEAD COMPARISON
+# ==========================================
+with tab4:
     st.subheader("👥 Compare Two Superstars (All-Time Stats & Strike Rates)")
     all_players = sorted(list(PLAYER_DATABASE.keys()))
     
@@ -344,7 +418,6 @@ with tab2:
         p2: [s2["Span"], s2["Total Runs"], s2["Balls"], s2["Strike Rate"], s2["4s"], s2["6s"], s2["Highest Score"]]
     }).set_index("Metric")
     
-    st.markdown("### 📊 Head-to-Head Matrix")
     st.dataframe(comp_df, use_container_width=True)
     
     chart_data = pd.DataFrame({
@@ -359,19 +432,18 @@ with tab2:
     st.pyplot(fig_comp)
 
 # ==========================================
-# TAB 3: STRIKE RATES & RUN LEADERS
+# TAB 5: STRIKE RATES & RUN LEADERS
 # ==========================================
-with tab3:
+with tab5:
     st.subheader("⚡ All-Time Batsmen Strike Rates & Run Scorer Rankings")
     df_players = pd.DataFrame([{"Player": k, **v} for k, v in PLAYER_DATABASE.items()])
     
     col_lead1, col_lead2 = st.columns(2)
     with col_lead1:
-        st.markdown("#### 🏏 Highest Strike Rates (Min. 1000 Balls)")
+        st.markdown("#### 🏏 Highest Strike Rates")
         top_sr = df_players.sort_values(by="Strike Rate", ascending=False).head(10)
         fig_s, ax_s = plt.subplots(figsize=(7, 5))
         sns.barplot(data=top_sr, x="Strike Rate", y="Player", palette="magma", ax=ax_s)
-        ax_s.set_title("Top 10 Strike Rates in IPL History", fontsize=11, weight="bold")
         ax_s.set_xlim(0, 190)
         for p in ax_s.patches:
             val = p.get_width()
@@ -384,66 +456,25 @@ with tab3:
         top_runs = df_players.sort_values(by="Total Runs", ascending=False).head(10)
         fig_r, ax_r = plt.subplots(figsize=(7, 5))
         sns.barplot(data=top_runs, x="Total Runs", y="Player", palette="viridis", ax=ax_r)
-        ax_r.set_title("Top 10 Run Getters in IPL History", fontsize=11, weight="bold")
         ax_r.set_xlim(0, 9000)
         for p in ax_r.patches:
             val = p.get_width()
             ax_r.annotate(f"{int(val)}", (val + 50, p.get_y() + p.get_height() / 2),
                           ha='left', va='center', fontsize=9, fontweight='bold', color='white')
         st.pyplot(fig_r)
-        
-    st.markdown("---")
-    st.markdown("#### 📋 Complete Player Leaderboard")
-    st.dataframe(df_players.sort_values(by="Total Runs", ascending=False).set_index("Player"), use_container_width=True)
 
 # ==========================================
-# TAB 4: FINALS HISTORY
+# TAB 6: FINALS HISTORY
 # ==========================================
-with tab4:
+with tab6:
     st.subheader("🥇 IPL Finals History: Champion Winners (2008 - Present)")
-    
-    st.markdown("#### 🏆 All-Time Champions Cards")
-    c_win1, c_win2, c_win3 = st.columns(3)
-    
-    with c_win1:
-        st.markdown("""
-        <div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 14px; text-align: center;">
-            <div style="font-size: 32px; line-height: 1;">🏆</div>
-            <h4 style="margin: 8px 0 2px 0; color: #facc15;">Chennai Super Kings</h4>
-            <p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>5 Trophies</b></p>
-            <p style="margin: 0; font-size: 11px; color: #94a3b8;">2010, 2011, 2018, 2021, 2023</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-    with c_win2:
-        st.markdown("""
-        <div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 14px; text-align: center;">
-            <div style="font-size: 32px; line-height: 1;">🏆</div>
-            <h4 style="margin: 8px 0 2px 0; color: #38bdf8;">Mumbai Indians</h4>
-            <p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>5 Trophies</b></p>
-            <p style="margin: 0; font-size: 11px; color: #94a3b8;">2013, 2015, 2017, 2019, 2020</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-    with c_win3:
-        st.markdown("""
-        <div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 14px; text-align: center;">
-            <div style="font-size: 32px; line-height: 1;">🏆</div>
-            <h4 style="margin: 8px 0 2px 0; color: #c084fc;">Kolkata Knight Riders</h4>
-            <p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>3 Trophies</b></p>
-            <p style="margin: 0; font-size: 11px; color: #94a3b8;">2012, 2014, 2024</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.markdown("---")
-    st.markdown("#### 📜 Match-by-Match Finals History (Winner vs Against)")
     finals_df = pd.DataFrame(IPL_FINALS_HISTORY)
     st.dataframe(finals_df.set_index("Season"), use_container_width=True)
 
 # ==========================================
-# TAB 5: HEAD TO HEAD
+# TAB 7: TEAM HEAD TO HEAD
 # ==========================================
-with tab5:
+with tab7:
     st.subheader("Head-to-Head Matrix")
     team_names = [t["team"] for t in TEAMS_DATA]
     sel_team = st.selectbox("Select Team:", team_names, index=0)
@@ -453,24 +484,9 @@ with tab5:
     st.dataframe(h_df.set_index("Opponent"), use_container_width=True)
 
 # ==========================================
-# TAB 6: BOWLERS
+# TAB 8: MATCH PREDICTOR
 # ==========================================
-with tab6:
-    st.subheader("🎯 IPL All-Time Leading Wicket Takers")
-    b_df = pd.DataFrame(BOWLERS_DATA)
-    c1, c2 = st.columns([1.2, 1])
-    with c1:
-        st.dataframe(b_df.set_index("Player"), use_container_width=True)
-    with c2:
-        fig_b, ax_b = plt.subplots(figsize=(6, 4.5))
-        sns.barplot(data=b_df, x="Wickets", y="Player", palette="rocket", ax=ax_b)
-        ax_b.set_title("Most Wickets in IPL History", fontsize=11, weight="bold")
-        st.pyplot(fig_b)
-
-# ==========================================
-# TAB 7: MATCH PREDICTOR
-# ==========================================
-with tab7:
+with tab8:
     st.subheader("🔮 IPL Match Outcome Predictor")
     st.markdown("Simulate win probability based on all-time head-to-head records & toss dynamics.")
     cp1, cp2, cp3 = st.columns(3)
