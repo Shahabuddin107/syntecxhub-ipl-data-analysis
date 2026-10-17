@@ -4,20 +4,20 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.set_page_config(
-    page_title="IPL Analytics Hub",
+    page_title="IPL All-Time Analytics Hub (2008-2026)",
     layout="wide",
     page_icon="🏏"
 )
 
-# Custom Styling for Official IPL Broadcast Style Cards
+# Broadcast Style Dark Theme CSS
 st.markdown("""
 <style>
     .team-card {
         background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
         border: 1px solid #374151;
         border-radius: 12px;
-        padding: 10px 16px;
-        margin-bottom: 10px;
+        padding: 12px 18px;
+        margin-bottom: 12px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -38,8 +38,8 @@ st.markdown("""
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 13px;
-        margin-right: 12px;
+        font-size: 14px;
+        margin-right: 14px;
         flex-shrink: 0;
     }
     .rank-badge {
@@ -53,7 +53,7 @@ st.markdown("""
         align-items: center;
         justify-content: center;
         font-size: 13px;
-        margin-right: 12px;
+        margin-right: 14px;
         flex-shrink: 0;
     }
     .team-logo-img {
@@ -73,7 +73,7 @@ st.markdown("""
         color: #9ca3af;
     }
     .rate-val {
-        font-size: 19px;
+        font-size: 20px;
         font-weight: 800;
         color: #10b981;
     }
@@ -86,129 +86,241 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🏏 IPL Advanced Analytics & Performance Dashboard")
-st.markdown("Official style Standings, Team Win Percentages, and Player Comparisons.")
+st.title("🏏 IPL Comprehensive Analytics & History (2008 – 2026)")
+st.markdown("All-time team performance, Head-to-Head win/loss records, franchise logos, and player leaderboards.")
 
-# 100% Real Official Transparent PNG Logos from Google Sports CDN
-TEAM_DATA = [
+# 10 Official Franchises with Real Google Sports CDN Logos & Historical Records (2008-2026)
+TEAMS_DATA = [
     {
         "rank": 1,
         "team": "Chennai Super Kings",
         "short": "CSK",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/5G8eFjkPKNalIgL2FOtovg_500x500.png",
-        "played": 50, "wins": 49, "rate": 98.0, "color": "#facc15"
+        "played": 239, "wins": 138, "losses": 98, "nr": 3, "rate": 58.47, "color": "#facc15"
     },
     {
         "rank": 2,
-        "team": "Royal Challengers Bengaluru",
-        "short": "RCB",
-        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/xUS54-BA0dFZPMtbCiHkzQ_500x500.png",
-        "played": 50, "wins": 48, "rate": 96.0, "color": "#ef4444"
-    },
-    {
-        "rank": 3,
-        "team": "Delhi Capitals",
-        "short": "DC",
-        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/HzUX6_c8j7pwBCetmct2FQ_500x500.png",
-        "played": 40, "wins": 38, "rate": 95.0, "color": "#3b82f6"
-    },
-    {
-        "rank": 4,
         "team": "Mumbai Indians",
         "short": "MI",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/HmiWb77BmJDs6sHvn77v_Q_500x500.png",
-        "played": 20, "wins": 19, "rate": 95.0, "color": "#0284c7"
+        "played": 261, "wins": 144, "losses": 113, "nr": 4, "rate": 56.03, "color": "#0284c7"
     },
     {
-        "rank": 5,
+        "rank": 3,
         "team": "Kolkata Knight Riders",
         "short": "KKR",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/bV4wF2dFs6IPc2BMtjgGZw_500x500.png",
-        "played": 20, "wins": 19, "rate": 95.0, "color": "#7c3aed"
+        "played": 252, "wins": 130, "losses": 117, "nr": 5, "rate": 52.63, "color": "#7c3aed"
     },
     {
-        "rank": 6,
-        "team": "Sunrisers Hyderabad",
-        "short": "SRH",
-        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/W0OCBYc05c5MFMrctF62kg_500x500.png",
-        "played": 20, "wins": 19, "rate": 95.0, "color": "#f97316"
-    },
-    {
-        "rank": 7,
-        "team": "Rajasthan Royals",
-        "short": "RR",
-        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/GqIU6xhQAnCpy_Cbr2LZRA_500x500.png",
-        "played": 20, "wins": 19, "rate": 95.0, "color": "#ec4899"
-    },
-    {
-        "rank": 8,
-        "team": "Lucknow Super Giants",
-        "short": "LSG",
-        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/OqrL0ztLy13FBpvuF6GCBQ_500x500.png",
-        "played": 20, "wins": 19, "rate": 95.0, "color": "#06b6d4"
-    },
-    {
-        "rank": 9,
+        "rank": 4,
         "team": "Gujarat Titans",
         "short": "GT",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/aTE8G7q-OcAobWvDd6sizQ_500x500.png",
-        "played": 20, "wins": 14, "rate": 70.0, "color": "#1e293b"
+        "played": 45, "wins": 28, "losses": 17, "nr": 0, "rate": 62.22, "color": "#1e293b"
+    },
+    {
+        "rank": 5,
+        "team": "Lucknow Super Giants",
+        "short": "LSG",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/OqrL0ztLy13FBpvuF6GCBQ_500x500.png",
+        "played": 44, "wins": 24, "losses": 19, "nr": 1, "rate": 55.81, "color": "#06b6d4"
+    },
+    {
+        "rank": 6,
+        "team": "Rajasthan Royals",
+        "short": "RR",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/GqIU6xhQAnCpy_Cbr2LZRA_500x500.png",
+        "played": 222, "wins": 110, "losses": 106, "nr": 6, "rate": 50.93, "color": "#ec4899"
+    },
+    {
+        "rank": 7,
+        "team": "Royal Challengers Bengaluru",
+        "short": "RCB",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/xUS54-BA0dFZPMtbCiHkzQ_500x500.png",
+        "played": 256, "wins": 121, "losses": 128, "nr": 7, "rate": 48.59, "color": "#ef4444"
+    },
+    {
+        "rank": 8,
+        "team": "Sunrisers Hyderabad",
+        "short": "SRH",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/W0OCBYc05c5MFMrctF62kg_500x500.png",
+        "played": 182, "wins": 87, "losses": 91, "nr": 4, "rate": 48.88, "color": "#f97316"
+    },
+    {
+        "rank": 9,
+        "team": "Delhi Capitals",
+        "short": "DC",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/HzUX6_c8j7pwBCetmct2FQ_500x500.png",
+        "played": 252, "wins": 112, "losses": 134, "nr": 6, "rate": 45.53, "color": "#3b82f6"
     },
     {
         "rank": 10,
         "team": "Punjab Kings",
         "short": "PBKS",
         "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/XUAb4iA3XozYbH_cXQCryQ_500x500.png",
-        "played": 20, "wins": 12, "rate": 60.0, "color": "#dc2626"
+        "played": 246, "wins": 109, "losses": 133, "nr": 4, "rate": 45.04, "color": "#dc2626"
     }
 ]
 
-# Player Database
-PLAYER_DATABASE = {
-    "MS Dhoni": {"Total Runs": 5082, "Balls Faced": 3739, "Strike Rate": 135.92, "Fours (4s)": 349, "Sixes (6s)": 239, "Highest Score": 84},
-    "V Kohli": {"Total Runs": 7263, "Balls Faced": 5586, "Strike Rate": 130.02, "Fours (4s)": 643, "Sixes (6s)": 234, "Highest Score": 113},
-    "RG Sharma": {"Total Runs": 6211, "Balls Faced": 4766, "Strike Rate": 130.32, "Fours (4s)": 554, "Sixes (6s)": 257, "Highest Score": 109},
-    "AB de Villiers": {"Total Runs": 5162, "Balls Faced": 3403, "Strike Rate": 151.69, "Fours (4s)": 413, "Sixes (6s)": 251, "Highest Score": 133},
-    "DA Warner": {"Total Runs": 6397, "Balls Faced": 4572, "Strike Rate": 139.92, "Fours (4s)": 646, "Sixes (6s)": 226, "Highest Score": 126},
-    "SK Raina": {"Total Runs": 5528, "Balls Faced": 4043, "Strike Rate": 136.73, "Fours (4s)": 506, "Sixes (6s)": 203, "Highest Score": 100},
-    "CH Gayle": {"Total Runs": 4965, "Balls Faced": 3333, "Strike Rate": 148.96, "Fours (4s)": 405, "Sixes (6s)": 357, "Highest Score": 175},
-    "S Dhawan": {"Total Runs": 6617, "Balls Faced": 5206, "Strike Rate": 127.10, "Fours (4s)": 750, "Sixes (6s)": 148, "Highest Score": 106},
-    "KL Rahul": {"Total Runs": 4163, "Balls Faced": 3102, "Strike Rate": 134.20, "Fours (4s)": 355, "Sixes (6s)": 168, "Highest Score": 132},
-    "RR Pant": {"Total Runs": 2838, "Balls Faced": 1918, "Strike Rate": 147.97, "Fours (4s)": 260, "Sixes (6s)": 129, "Highest Score": 128},
-    "Shubman Gill": {"Total Runs": 2790, "Balls Faced": 2082, "Strike Rate": 134.00, "Fours (4s)": 273, "Sixes (6s)": 80, "Highest Score": 129},
-    "H Pandya": {"Total Runs": 2309, "Balls Faced": 1590, "Strike Rate": 145.22, "Fours (4s)": 172, "Sixes (6s)": 125, "Highest Score": 91},
-    "RA Jadeja": {"Total Runs": 2692, "Balls Faced": 2093, "Strike Rate": 128.62, "Fours (4s)": 193, "Sixes (6s)": 99, "Highest Score": 62},
-    "SV Samson": {"Total Runs": 3888, "Balls Faced": 2836, "Strike Rate": 137.09, "Fours (4s)": 311, "Sixes (6s)": 182, "Highest Score": 119},
-    "SA Yadav": {"Total Runs": 3249, "Balls Faced": 2266, "Strike Rate": 143.38, "Fours (4s)": 349, "Sixes (6s)": 112, "Highest Score": 103},
-    "AD Russell": {"Total Runs": 2262, "Balls Faced": 1299, "Strike Rate": 174.13, "Fours (4s)": 150, "Sixes (6s)": 193, "Highest Score": 88},
-    "F du Plessis": {"Total Runs": 4133, "Balls Faced": 3084, "Strike Rate": 134.01, "Fours (4s)": 374, "Sixes (6s)": 145, "Highest Score": 96},
-    "GJ Maxwell": {"Total Runs": 2719, "Balls Faced": 1726, "Strike Rate": 157.53, "Fours (4s)": 226, "Sixes (6s)": 158, "Highest Score": 95},
-    "JC Buttler": {"Total Runs": 3223, "Balls Faced": 2173, "Strike Rate": 148.32, "Fours (4s)": 319, "Sixes (6s)": 149, "Highest Score": 124},
-    "Rashid Khan": {"Total Runs": 443, "Balls Faced": 266, "Strike Rate": 166.54, "Fours (4s)": 32, "Sixes (6s)": 31, "Highest Score": 79}
+# Head to Head Matrix Data (2008 - 2026)
+H2H_DATA = {
+    "Chennai Super Kings": [
+        {"Opponent": "Mumbai Indians", "Played": 36, "Won": 16, "Lost": 20},
+        {"Opponent": "Royal Challengers Bengaluru", "Played": 32, "Won": 21, "Lost": 10},
+        {"Opponent": "Kolkata Knight Riders", "Played": 29, "Won": 19, "Lost": 10},
+        {"Opponent": "Delhi Capitals", "Played": 30, "Won": 19, "Lost": 11},
+        {"Opponent": "Rajasthan Royals", "Played": 29, "Won": 16, "Lost": 13},
+        {"Opponent": "Sunrisers Hyderabad", "Played": 20, "Won": 15, "Lost": 5},
+        {"Opponent": "Punjab Kings", "Played": 29, "Won": 16, "Lost": 13},
+        {"Opponent": "Gujarat Titans", "Played": 6, "Won": 3, "Lost": 3},
+        {"Opponent": "Lucknow Super Giants", "Played": 5, "Won": 2, "Lost": 3}
+    ],
+    "Mumbai Indians": [
+        {"Opponent": "Chennai Super Kings", "Played": 36, "Won": 20, "Lost": 16},
+        {"Opponent": "Kolkata Knight Riders", "Played": 32, "Won": 23, "Lost": 9},
+        {"Opponent": "Royal Challengers Bengaluru", "Played": 34, "Won": 20, "Lost": 14},
+        {"Opponent": "Delhi Capitals", "Played": 34, "Won": 19, "Lost": 15},
+        {"Opponent": "Rajasthan Royals", "Played": 29, "Won": 15, "Lost": 14},
+        {"Opponent": "Sunrisers Hyderabad", "Played": 22, "Won": 13, "Lost": 9},
+        {"Opponent": "Punjab Kings", "Played": 31, "Won": 16, "Lost": 15},
+        {"Opponent": "Gujarat Titans", "Played": 5, "Won": 2, "Lost": 3},
+        {"Opponent": "Lucknow Super Giants", "Played": 5, "Won": 1, "Lost": 4}
+    ],
+    "Royal Challengers Bengaluru": [
+        {"Opponent": "Chennai Super Kings", "Played": 32, "Won": 10, "Lost": 21},
+        {"Opponent": "Mumbai Indians", "Played": 34, "Won": 14, "Lost": 20},
+        {"Opponent": "Kolkata Knight Riders", "Played": 33, "Won": 14, "Lost": 19},
+        {"Opponent": "Delhi Capitals", "Played": 30, "Won": 18, "Lost": 11},
+        {"Opponent": "Rajasthan Royals", "Played": 30, "Won": 15, "Lost": 13},
+        {"Opponent": "Sunrisers Hyderabad", "Played": 23, "Won": 11, "Lost": 12},
+        {"Opponent": "Punjab Kings", "Played": 31, "Won": 15, "Lost": 16},
+        {"Opponent": "Gujarat Titans", "Played": 4, "Won": 2, "Lost": 2},
+        {"Opponent": "Lucknow Super Giants", "Played": 4, "Won": 3, "Lost": 1}
+    ],
+    "Kolkata Knight Riders": [
+        {"Opponent": "Mumbai Indians", "Played": 32, "Won": 9, "Lost": 23},
+        {"Opponent": "Chennai Super Kings", "Played": 29, "Won": 10, "Lost": 19},
+        {"Opponent": "Royal Challengers Bengaluru", "Played": 33, "Won": 19, "Lost": 14},
+        {"Opponent": "Delhi Capitals", "Played": 32, "Won": 17, "Lost": 14},
+        {"Opponent": "Rajasthan Royals", "Played": 29, "Won": 14, "Lost": 14},
+        {"Opponent": "Sunrisers Hyderabad", "Played": 27, "Won": 18, "Lost": 9},
+        {"Opponent": "Punjab Kings", "Played": 32, "Won": 21, "Lost": 11},
+        {"Opponent": "Gujarat Titans", "Played": 3, "Won": 1, "Lost": 2},
+        {"Opponent": "Lucknow Super Giants", "Played": 4, "Won": 1, "Lost": 3}
+    ],
+    "Delhi Capitals": [
+        {"Opponent": "Chennai Super Kings", "Played": 30, "Won": 11, "Lost": 19},
+        {"Opponent": "Mumbai Indians", "Played": 34, "Won": 15, "Lost": 19},
+        {"Opponent": "Royal Challengers Bengaluru", "Played": 30, "Won": 11, "Lost": 18},
+        {"Opponent": "Kolkata Knight Riders", "Played": 32, "Won": 14, "Lost": 17},
+        {"Opponent": "Rajasthan Royals", "Played": 28, "Won": 13, "Lost": 15},
+        {"Opponent": "Sunrisers Hyderabad", "Played": 23, "Won": 11, "Lost": 12},
+        {"Opponent": "Punjab Kings", "Played": 32, "Won": 16, "Lost": 16},
+        {"Opponent": "Gujarat Titans", "Played": 4, "Won": 2, "Lost": 2},
+        {"Opponent": "Lucknow Super Giants", "Played": 4, "Won": 1, "Lost": 3}
+    ],
+    "Rajasthan Royals": [
+        {"Opponent": "Chennai Super Kings", "Played": 29, "Won": 13, "Lost": 16},
+        {"Opponent": "Mumbai Indians", "Played": 29, "Won": 14, "Lost": 15},
+        {"Opponent": "Royal Challengers Bengaluru", "Played": 30, "Won": 13, "Lost": 15},
+        {"Opponent": "Kolkata Knight Riders", "Played": 29, "Won": 14, "Lost": 14},
+        {"Opponent": "Delhi Capitals", "Played": 28, "Won": 15, "Lost": 13},
+        {"Opponent": "Sunrisers Hyderabad", "Played": 19, "Won": 9, "Lost": 10},
+        {"Opponent": "Punjab Kings", "Played": 27, "Won": 16, "Lost": 11},
+        {"Opponent": "Gujarat Titans", "Played": 5, "Won": 1, "Lost": 4},
+        {"Opponent": "Lucknow Super Giants", "Played": 4, "Won": 3, "Lost": 1}
+    ],
+    "Sunrisers Hyderabad": [
+        {"Opponent": "Chennai Super Kings", "Played": 20, "Won": 5, "Lost": 15},
+        {"Opponent": "Mumbai Indians", "Played": 22, "Won": 9, "Lost": 13},
+        {"Opponent": "Royal Challengers Bengaluru", "Played": 23, "Won": 12, "Lost": 11},
+        {"Opponent": "Kolkata Knight Riders", "Played": 27, "Won": 9, "Lost": 18},
+        {"Opponent": "Delhi Capitals", "Played": 23, "Won": 12, "Lost": 11},
+        {"Opponent": "Rajasthan Royals", "Played": 19, "Won": 10, "Lost": 9},
+        {"Opponent": "Punjab Kings", "Played": 22, "Won": 15, "Lost": 7},
+        {"Opponent": "Gujarat Titans", "Played": 4, "Won": 1, "Lost": 3},
+        {"Opponent": "Lucknow Super Giants", "Played": 3, "Won": 1, "Lost": 2}
+    ],
+    "Lucknow Super Giants": [
+        {"Opponent": "Chennai Super Kings", "Played": 5, "Won": 3, "Lost": 2},
+        {"Opponent": "Mumbai Indians", "Played": 5, "Won": 4, "Lost": 1},
+        {"Opponent": "Royal Challengers Bengaluru", "Played": 4, "Won": 1, "Lost": 3},
+        {"Opponent": "Kolkata Knight Riders", "Played": 4, "Won": 3, "Lost": 1},
+        {"Opponent": "Delhi Capitals", "Played": 4, "Won": 3, "Lost": 1},
+        {"Opponent": "Rajasthan Royals", "Played": 4, "Won": 1, "Lost": 3},
+        {"Opponent": "Sunrisers Hyderabad", "Played": 3, "Won": 2, "Lost": 1},
+        {"Opponent": "Punjab Kings", "Played": 4, "Won": 3, "Lost": 1},
+        {"Opponent": "Gujarat Titans", "Played": 5, "Won": 1, "Lost": 4}
+    ],
+    "Gujarat Titans": [
+        {"Opponent": "Chennai Super Kings", "Played": 6, "Won": 3, "Lost": 3},
+        {"Opponent": "Mumbai Indians", "Played": 5, "Won": 3, "Lost": 2},
+        {"Opponent": "Royal Challengers Bengaluru", "Played": 4, "Won": 2, "Lost": 2},
+        {"Opponent": "Kolkata Knight Riders", "Played": 3, "Won": 2, "Lost": 1},
+        {"Opponent": "Delhi Capitals", "Played": 4, "Won": 2, "Lost": 2},
+        {"Opponent": "Rajasthan Royals", "Played": 5, "Won": 4, "Lost": 1},
+        {"Opponent": "Sunrisers Hyderabad", "Played": 4, "Won": 3, "Lost": 1},
+        {"Opponent": "Punjab Kings", "Played": 4, "Won": 2, "Lost": 2},
+        {"Opponent": "Lucknow Super Giants", "Played": 5, "Won": 4, "Lost": 1}
+    ],
+    "Punjab Kings": [
+        {"Opponent": "Chennai Super Kings", "Played": 29, "Won": 13, "Lost": 16},
+        {"Opponent": "Mumbai Indians", "Played": 31, "Won": 15, "Lost": 16},
+        {"Opponent": "Royal Challengers Bengaluru", "Played": 31, "Won": 16, "Lost": 15},
+        {"Opponent": "Kolkata Knight Riders", "Played": 32, "Won": 11, "Lost": 21},
+        {"Opponent": "Delhi Capitals", "Played": 32, "Won": 16, "Lost": 16},
+        {"Opponent": "Rajasthan Royals", "Played": 27, "Won": 11, "Lost": 16},
+        {"Opponent": "Sunrisers Hyderabad", "Played": 22, "Won": 7, "Lost": 15},
+        {"Opponent": "Gujarat Titans", "Played": 4, "Won": 2, "Lost": 2},
+        {"Opponent": "Lucknow Super Giants", "Played": 4, "Won": 1, "Lost": 3}
+    ]
 }
 
-tab1, tab2, tab3 = st.tabs(["🏆 Official Team Standings & Boxes", "👥 Player Comparison", "🔥 Top Scorers & Strike Rates"])
+# All-Time Roster of IPL Superstars
+PLAYER_DATABASE = {
+    "MS Dhoni": {"Total Runs": 5082, "Balls": 3739, "SR": 135.92, "4s": 349, "6s": 239, "HS": 84, "Span": "2008-2024"},
+    "V Kohli": {"Total Runs": 8004, "Balls": 6092, "SR": 131.38, "4s": 705, "6s": 272, "HS": 113, "Span": "2008-2024"},
+    "RG Sharma": {"Total Runs": 6628, "Balls": 5055, "SR": 131.11, "4s": 599, "6s": 280, "HS": 109, "Span": "2008-2024"},
+    "DA Warner": {"Total Runs": 6565, "Balls": 4697, "SR": 139.77, "4s": 663, "6s": 236, "HS": 126, "Span": "2009-2024"},
+    "S Dhawan": {"Total Runs": 6769, "Balls": 5326, "SR": 127.14, "4s": 768, "6s": 152, "HS": 106, "Span": "2008-2024"},
+    "AB de Villiers": {"Total Runs": 5162, "Balls": 3403, "SR": 151.69, "4s": 413, "6s": 251, "HS": 133, "Span": "2008-2021"},
+    "SK Raina": {"Total Runs": 5528, "Balls": 4043, "SR": 136.73, "4s": 506, "6s": 203, "HS": 100, "Span": "2008-2021"},
+    "CH Gayle": {"Total Runs": 4965, "Balls": 3333, "SR": 148.96, "4s": 405, "6s": 357, "HS": 175, "Span": "2009-2021"},
+    "KL Rahul": {"Total Runs": 4683, "Balls": 3479, "SR": 134.61, "4s": 401, "6s": 187, "HS": 132, "Span": "2013-2024"},
+    "AD Russell": {"Total Runs": 2484, "Balls": 1420, "SR": 174.93, "4s": 169, "6s": 209, "HS": 88, "Span": "2012-2024"},
+    "RR Pant": {"Total Runs": 3284, "Balls": 2217, "SR": 148.13, "4s": 295, "6s": 154, "HS": 128, "Span": "2016-2024"},
+    "Shubman Gill": {"Total Runs": 3216, "Balls": 2370, "SR": 135.70, "4s": 313, "6s": 95, "HS": 129, "Span": "2018-2024"}
+}
+
+tab1, tab2, tab3, tab4 = st.tabs([
+    "🏆 Official Team Standings (2008-2026)",
+    "⚔️ Head-to-Head (Team vs Team)",
+    "👥 Player Comparison",
+    "🔥 All-Time Leaders"
+])
 
 # ==========================================
-# TAB 1: OFFICIAL TEAM CARDS & REAL LOGOS
+# TAB 1: ALL-TIME TEAM STANDINGS (NO HASHTAG)
 # ==========================================
 with tab1:
-    st.subheader("Official IPL Team Standings & Win Rates")
+    st.subheader("Official All-Time IPL Team Standings (2008 – 2026)")
     
-    col_cards, col_graph = st.columns([1.5, 1])
+    col_left, col_right = st.columns([1.5, 1])
     
-    with col_cards:
-        st.markdown("#### 🏏 Team Leaderboard")
-        for t in TEAM_DATA:
+    with col_left:
+        st.markdown("#### 🏏 All-Time Franchise Leaderboard")
+        for t in TEAMS_DATA:
+            # Clean number without '#' symbol
             badge_class = "rank-badge-1" if t["rank"] == 1 else "rank-badge"
             card_html = f"""
             <div class="team-card" style="border-left: 6px solid {t['color']};">
                 <div style="display: flex; align-items: center;">
-                    <div class="{badge_class}">#{t['rank']}</div>
+                    <div class="{badge_class}">{t['rank']}</div>
                     <img src="{t['logo']}" class="team-logo-img" alt="{t['team']}" />
                     <div>
                         <div class="team-name">{t['team']}</div>
-                        <div class="matches-subtext">Matches: {t['played']} | Won: {t['wins']}</div>
+                        <div class="matches-subtext">Matches: {t['played']} | Won: {t['wins']} | Lost: {t['losses']} | NR: {t['nr']}</div>
                     </div>
                 </div>
                 <div style="text-align: right;">
@@ -219,15 +331,15 @@ with tab1:
             """
             st.markdown(card_html, unsafe_allow_html=True)
             
-    with col_graph:
-        st.markdown("#### 📊 Comparative Win Rate Chart")
-        plot_df = pd.DataFrame(TEAM_DATA)
+    with col_right:
+        st.markdown("#### 📊 All-Time Win Rate Overview")
+        df_teams = pd.DataFrame(TEAMS_DATA)
         fig, ax = plt.subplots(figsize=(6, 8.5))
-        sns.barplot(data=plot_df, x="rate", y="short", palette="mako", ax=ax)
-        ax.set_title("Win Rate (%) by Franchise", fontsize=12, weight="bold")
+        sns.barplot(data=df_teams, x="rate", y="short", palette="mako", ax=ax)
+        ax.set_title("All-Time Win Rate % (2008-2026)", fontsize=12, weight="bold")
         ax.set_xlabel("Win Rate (%)")
-        ax.set_ylabel("Team")
-        ax.set_xlim(0, 115)
+        ax.set_ylabel("Franchise")
+        ax.set_xlim(0, 80)
         for p in ax.patches:
             val = p.get_width()
             ax.annotate(f"{val:.1f}%", (val + 1, p.get_y() + p.get_height() / 2),
@@ -235,10 +347,38 @@ with tab1:
         st.pyplot(fig)
 
 # ==========================================
-# TAB 2: PLAYER HEAD-TO-HEAD COMPARISON
+# TAB 2: HEAD TO HEAD (TEAM VS TEAM)
 # ==========================================
 with tab2:
-    st.subheader("⚔️ Compare Two Players")
+    st.subheader("⚔️ Head-to-Head: Kis Team Ne Kiske Samne Kitna Jeeta / Haara")
+    team_names = [t["team"] for t in TEAMS_DATA]
+    
+    selected_team = st.selectbox("Select Team to View All-Time Record Against Opponents:", team_names, index=0)
+    
+    h2h_list = H2H_DATA.get(selected_team, [])
+    if h2h_list:
+        h2h_df = pd.DataFrame(h2h_list)
+        h2h_df["Win %"] = ((h2h_df["Won"] / h2h_df["Played"]) * 100).round(2)
+        
+        col_h1, col_h2 = st.columns([1.3, 1.2])
+        
+        with col_h1:
+            st.markdown(f"#### Detailed Match Breakdown: **{selected_team}**")
+            st.dataframe(h2h_df.set_index("Opponent"), use_container_width=True)
+            
+        with col_h2:
+            st.markdown(f"#### Wins vs Losses against Each Opponent")
+            plot_h2h = h2h_df.melt(id_vars=["Opponent", "Played", "Win %"], value_vars=["Won", "Lost"], var_name="Result", value_name="Matches")
+            fig_h2h, ax_h2h = plt.subplots(figsize=(7, 5.5))
+            sns.barplot(data=plot_h2h, y="Opponent", x="Matches", hue="Result", palette={"Won": "#10b981", "Lost": "#ef4444"}, ax=ax_h2h)
+            ax_h2h.set_title(f"{selected_team} Head-to-Head Record", fontsize=11, weight="bold")
+            st.pyplot(fig_h2h)
+
+# ==========================================
+# TAB 3: PLAYER HEAD-TO-HEAD COMPARISON
+# ==========================================
+with tab3:
+    st.subheader("👥 Compare Two Superstars (2008 – 2026)")
     all_players = sorted(list(PLAYER_DATABASE.keys()))
     
     col1, col2 = st.columns(2)
@@ -247,48 +387,35 @@ with tab2:
     with col2:
         p2 = st.selectbox("Select Player 2", all_players, index=all_players.index("V Kohli"))
         
-    stats_p1 = PLAYER_DATABASE[p1]
-    stats_p2 = PLAYER_DATABASE[p2]
+    s1 = PLAYER_DATABASE[p1]
+    s2 = PLAYER_DATABASE[p2]
     
     comp_df = pd.DataFrame({
-        "Metric": list(stats_p1.keys()),
-        p1: list(stats_p1.values()),
-        p2: list(stats_p2.values())
+        "Metric": ["Span", "Total Runs", "Balls Faced", "Strike Rate", "Fours (4s)", "Sixes (6s)", "Highest Score"],
+        p1: [s1["Span"], s1["Total Runs"], s1["Balls"], s1["SR"], s1["4s"], s1["6s"], s1["HS"]],
+        p2: [s2["Span"], s2["Total Runs"], s2["Balls"], s2["SR"], s2["4s"], s2["6s"], s2["HS"]]
     }).set_index("Metric")
     
-    st.write("### Head-to-Head Comparison")
     st.dataframe(comp_df, use_container_width=True)
-    
-    chart_data = pd.DataFrame({
-        'Metric': ['Total Runs', 'Strike Rate', 'Fours (4s)', 'Sixes (6s)'],
-        p1: [stats_p1['Total Runs'], stats_p1['Strike Rate'], stats_p1['Fours (4s)'], stats_p1['Sixes (6s)']],
-        p2: [stats_p2['Total Runs'], stats_p2['Strike Rate'], stats_p2['Fours (4s)'], stats_p2['Sixes (6s)']]
-    }).melt(id_vars='Metric', var_name='Player', value_name='Value')
-    
-    fig_comp, ax_comp = plt.subplots(figsize=(9, 4.5))
-    sns.barplot(data=chart_data, x='Metric', y='Value', hue='Player', palette="viridis", ax=ax_comp)
-    ax_comp.set_title(f"{p1} vs {p2} Performance Comparison", fontsize=12, weight="bold")
-    st.pyplot(fig_comp)
 
 # ==========================================
-# TAB 3: TOURNAMENT ALL-TIME LEADERS
+# TAB 4: ALL-TIME TOURNAMENT LEADERS
 # ==========================================
-with tab3:
-    st.subheader("Tournament All-Time Leaders")
-    col3, col4 = st.columns(2)
+with tab4:
+    st.subheader("🔥 IPL All-Time Historical Leaders (2008 – 2026)")
+    df_players = pd.DataFrame([{"Player": k, **v} for k, v in PLAYER_DATABASE.items()])
     
-    all_players_df = pd.DataFrame([{"Player": k, **v} for k, v in PLAYER_DATABASE.items()])
-    top_scorers = all_players_df.sort_values(by="Total Runs", ascending=False).head(10)
-    
-    with col3:
-        fig_ts, ax_ts = plt.subplots(figsize=(8, 4.5))
-        sns.barplot(data=top_scorers, x="Total Runs", y="Player", palette="viridis", ax=ax_ts)
-        ax_ts.set_title("Top 10 All-Time Run Scorers", fontsize=12, weight="bold")
-        st.pyplot(fig_ts)
+    col_t1, col_t2 = st.columns(2)
+    with col_t1:
+        top_runs = df_players.sort_values(by="Total Runs", ascending=False).head(8)
+        fig_r, ax_r = plt.subplots(figsize=(7, 4.5))
+        sns.barplot(data=top_runs, x="Total Runs", y="Player", palette="viridis", ax=ax_r)
+        ax_r.set_title("Most Runs in IPL History", fontsize=11, weight="bold")
+        st.pyplot(fig_r)
         
-    with col4:
-        top_sr = all_players_df.sort_values(by="Strike Rate", ascending=False).head(10)
-        fig_sr, ax_sr = plt.subplots(figsize=(8, 4.5))
-        sns.barplot(data=top_sr, x="Strike Rate", y="Player", palette="magma", ax=ax_sr)
-        ax_sr.set_title("Top 10 All-Time Strike Rates", fontsize=12, weight="bold")
-        st.pyplot(fig_sr)
+    with col_t2:
+        top_sr = df_players.sort_values(by="SR", ascending=False).head(8)
+        fig_s, ax_s = plt.subplots(figsize=(7, 4.5))
+        sns.barplot(data=top_sr, x="SR", y="Player", palette="magma", ax=ax_s)
+        ax_s.set_title("Highest Strike Rates in IPL History", fontsize=11, weight="bold")
+        st.pyplot(fig_s)
