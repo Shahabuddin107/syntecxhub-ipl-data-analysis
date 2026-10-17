@@ -94,22 +94,22 @@ st.markdown("""
     .trophy-badge-container {
         display: inline-flex;
         align-items: center;
-        background: rgba(245, 158, 11, 0.15);
-        border: 1px solid rgba(245, 158, 11, 0.4);
-        padding: 2px 8px;
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.25));
+        border: 1px solid rgba(245, 158, 11, 0.6);
+        padding: 3px 9px;
         border-radius: 12px;
         margin-left: 8px;
     }
-    .trophy-pic {
-        width: 16px;
-        height: 16px;
-        object-fit: contain;
+    .trophy-icon-symbol {
+        font-size: 15px;
         margin-right: 5px;
+        filter: drop-shadow(0px 1px 3px rgba(245, 158, 11, 0.8));
     }
     .trophy-text {
-        color: #fbbf24;
+        color: #fcd34d;
         font-size: 11px;
-        font-weight: 700;
+        font-weight: 800;
+        letter-spacing: 0.3px;
     }
     .team-name {
         font-size: 15px;
@@ -134,11 +134,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 IPL_LOGO_URL = "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Indian_Premier_League_Official_Logo.svg/500px-Indian_Premier_League_Official_Logo.svg.png"
-TROPHY_ICON_URL = "https://cdn-icons-png.flaticon.com/512/861/861512.png"
 
 st.markdown(f'<div class="header-container"><img src="{IPL_LOGO_URL}" class="ipl-header-logo" alt="IPL Logo" /><div class="header-text"><h1>Indian Premier League Official Analytics Hub (2008 – 2026)</h1><p>Franchise standings, championship trophies, player strike rates, head-to-head records, and match predictor.</p></div></div>', unsafe_allow_html=True)
 
-# 10 Official Teams Data with Titles Count
+# 10 Official Teams Data
 TEAMS_DATA = [
     {
         "rank": 1, "team": "Chennai Super Kings", "short": "CSK",
@@ -204,23 +203,23 @@ TEAMS_DATA = [
 
 # Finals History
 IPL_FINALS_HISTORY = [
-    {"Season": 2024, "Winner": "Kolkata Knight Riders", "Defeated (Against)": "Sunrisers Hyderabad", "Margin": "8 wickets", "Venue": "Chennai"},
-    {"Season": 2023, "Winner": "Chennai Super Kings", "Defeated (Against)": "Gujarat Titans", "Margin": "5 wickets (DLS)", "Venue": "Ahmedabad"},
-    {"Season": 2022, "Winner": "Gujarat Titans", "Defeated (Against)": "Rajasthan Royals", "Margin": "7 wickets", "Venue": "Ahmedabad"},
-    {"Season": 2021, "Winner": "Chennai Super Kings", "Defeated (Against)": "Kolkata Knight Riders", "Margin": "27 runs", "Venue": "Dubai"},
-    {"Season": 2020, "Winner": "Mumbai Indians", "Defeated (Against)": "Delhi Capitals", "Margin": "5 wickets", "Venue": "Dubai"},
-    {"Season": 2019, "Winner": "Mumbai Indians", "Defeated (Against)": "Chennai Super Kings", "Margin": "1 run", "Venue": "Hyderabad"},
-    {"Season": 2018, "Winner": "Chennai Super Kings", "Defeated (Against)": "Sunrisers Hyderabad", "Margin": "8 wickets", "Venue": "Mumbai"},
-    {"Season": 2017, "Winner": "Mumbai Indians", "Defeated (Against)": "Rising Pune Supergiant", "Margin": "1 run", "Venue": "Hyderabad"},
-    {"Season": 2016, "Winner": "Sunrisers Hyderabad", "Defeated (Against)": "Royal Challengers Bangalore", "Margin": "8 runs", "Venue": "Bengaluru"},
-    {"Season": 2015, "Winner": "Mumbai Indians", "Defeated (Against)": "Chennai Super Kings", "Margin": "41 runs", "Venue": "Kolkata"},
-    {"Season": 2014, "Winner": "Kolkata Knight Riders", "Defeated (Against)": "Kings XI Punjab", "Margin": "3 wickets", "Venue": "Bengaluru"},
-    {"Season": 2013, "Winner": "Mumbai Indians", "Defeated (Against)": "Chennai Super Kings", "Margin": "23 runs", "Venue": "Kolkata"},
-    {"Season": 2012, "Winner": "Kolkata Knight Riders", "Defeated (Against)": "Chennai Super Kings", "Margin": "5 wickets", "Venue": "Chennai"},
-    {"Season": 2011, "Winner": "Chennai Super Kings", "Defeated (Against)": "Royal Challengers Bangalore", "Margin": "58 runs", "Venue": "Chennai"},
-    {"Season": 2010, "Winner": "Chennai Super Kings", "Defeated (Against)": "Mumbai Indians", "Margin": "22 runs", "Venue": "Mumbai"},
-    {"Season": 2009, "Winner": "Deccan Chargers", "Defeated (Against)": "Royal Challengers Bangalore", "Margin": "6 runs", "Venue": "Johannesburg"},
-    {"Season": 2008, "Winner": "Rajasthan Royals", "Defeated (Against)": "Chennai Super Kings", "Margin": "3 wickets", "Venue": "Navi Mumbai"}
+    {"Season": 2024, "Winner": "Kolkata Knight Riders 🏆", "Defeated (Against)": "Sunrisers Hyderabad", "Margin": "8 wickets", "Venue": "Chennai"},
+    {"Season": 2023, "Winner": "Chennai Super Kings 🏆", "Defeated (Against)": "Gujarat Titans", "Margin": "5 wickets (DLS)", "Venue": "Ahmedabad"},
+    {"Season": 2022, "Winner": "Gujarat Titans 🏆", "Defeated (Against)": "Rajasthan Royals", "Margin": "7 wickets", "Venue": "Ahmedabad"},
+    {"Season": 2021, "Winner": "Chennai Super Kings 🏆", "Defeated (Against)": "Kolkata Knight Riders", "Margin": "27 runs", "Venue": "Dubai"},
+    {"Season": 2020, "Winner": "Mumbai Indians 🏆", "Defeated (Against)": "Delhi Capitals", "Margin": "5 wickets", "Venue": "Dubai"},
+    {"Season": 2019, "Winner": "Mumbai Indians 🏆", "Defeated (Against)": "Chennai Super Kings", "Margin": "1 run", "Venue": "Hyderabad"},
+    {"Season": 2018, "Winner": "Chennai Super Kings 🏆", "Defeated (Against)": "Sunrisers Hyderabad", "Margin": "8 wickets", "Venue": "Mumbai"},
+    {"Season": 2017, "Winner": "Mumbai Indians 🏆", "Defeated (Against)": "Rising Pune Supergiant", "Margin": "1 run", "Venue": "Hyderabad"},
+    {"Season": 2016, "Winner": "Sunrisers Hyderabad 🏆", "Defeated (Against)": "Royal Challengers Bangalore", "Margin": "8 runs", "Venue": "Bengaluru"},
+    {"Season": 2015, "Winner": "Mumbai Indians 🏆", "Defeated (Against)": "Chennai Super Kings", "Margin": "41 runs", "Venue": "Kolkata"},
+    {"Season": 2014, "Winner": "Kolkata Knight Riders 🏆", "Defeated (Against)": "Kings XI Punjab", "Margin": "3 wickets", "Venue": "Bengaluru"},
+    {"Season": 2013, "Winner": "Mumbai Indians 🏆", "Defeated (Against)": "Chennai Super Kings", "Margin": "23 runs", "Venue": "Kolkata"},
+    {"Season": 2012, "Winner": "Kolkata Knight Riders 🏆", "Defeated (Against)": "Chennai Super Kings", "Margin": "5 wickets", "Venue": "Chennai"},
+    {"Season": 2011, "Winner": "Chennai Super Kings 🏆", "Defeated (Against)": "Royal Challengers Bangalore", "Margin": "58 runs", "Venue": "Chennai"},
+    {"Season": 2010, "Winner": "Chennai Super Kings 🏆", "Defeated (Against)": "Mumbai Indians", "Margin": "22 runs", "Venue": "Mumbai"},
+    {"Season": 2009, "Winner": "Deccan Chargers 🏆", "Defeated (Against)": "Royal Challengers Bangalore", "Margin": "6 runs", "Venue": "Johannesburg"},
+    {"Season": 2008, "Winner": "Rajasthan Royals 🏆", "Defeated (Against)": "Chennai Super Kings", "Margin": "3 wickets", "Venue": "Navi Mumbai"}
 ]
 
 # Head-to-Head Records
@@ -249,7 +248,7 @@ H2H_DATA = {
     ]
 }
 
-# Rich All-Time Player Database with Exact Strike Rates
+# Player Database
 PLAYER_DATABASE = {
     "Virat Kohli": {"Total Runs": 8004, "Balls": 6092, "Strike Rate": 131.38, "4s": 705, "6s": 272, "Highest Score": 113, "Span": "2008-2024"},
     "MS Dhoni": {"Total Runs": 5082, "Balls": 3739, "Strike Rate": 135.92, "4s": 349, "6s": 239, "Highest Score": 84, "Span": "2008-2024"},
@@ -270,20 +269,6 @@ PLAYER_DATABASE = {
     "Faf du Plessis": {"Total Runs": 4571, "Balls": 3354, "Strike Rate": 136.28, "4s": 420, "6s": 165, "Highest Score": 96, "Span": "2012-2024"},
     "Glenn Maxwell": {"Total Runs": 2771, "Balls": 1764, "Strike Rate": 157.09, "4s": 230, "6s": 162, "Highest Score": 95, "Span": "2012-2024"}
 }
-
-# Optional dynamic backend loader from CSV
-@st.cache_data
-def load_csv_data():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    deliv_path = os.path.join(base_dir, "data", "deliveries.csv")
-    if os.path.exists(deliv_path):
-        try:
-            return pd.read_csv(deliv_path)
-        except Exception:
-            return None
-    return None
-
-deliveries_df = load_csv_data()
 
 # Bowlers Data
 BOWLERS_DATA = [
@@ -318,7 +303,7 @@ with tab1:
             badge_class = "rank-badge-1" if t["rank"] == 1 else "rank-badge"
             
             if t["is_winner"]:
-                trophy_badge_html = f'<span class="trophy-badge-container"><img src="{TROPHY_ICON_URL}" class="trophy-pic" alt="Trophy" /><span class="trophy-text">{t["trophies_count"]}</span></span>'
+                trophy_badge_html = f'<span class="trophy-badge-container"><span class="trophy-icon-symbol">🏆</span><span class="trophy-text">{t["trophies_count"]}</span></span>'
             else:
                 trophy_badge_html = f'<span style="background: rgba(156, 163, 175, 0.15); border: 1px solid #4b5563; padding: 2px 8px; border-radius: 12px; font-size: 11px; color: #9ca3af; margin-left: 8px;">{t["trophies_count"]}</span>'
 
@@ -362,7 +347,6 @@ with tab2:
     st.markdown("### 📊 Head-to-Head Matrix")
     st.dataframe(comp_df, use_container_width=True)
     
-    # Comparison Bar Chart
     chart_data = pd.DataFrame({
         'Metric': ['Total Runs', 'Strike Rate', 'Fours (4s)', 'Sixes (6s)'],
         p1: [s1['Total Runs'], s1['Strike Rate'], s1['4s'], s1['6s']],
@@ -416,19 +400,40 @@ with tab3:
 # TAB 4: FINALS HISTORY
 # ==========================================
 with tab4:
-    st.subheader("🥇 IPL Finals History: Champion Winners with Trophies")
+    st.subheader("🥇 IPL Finals History: Champion Winners (2008 - Present)")
     
     st.markdown("#### 🏆 All-Time Champions Cards")
     c_win1, c_win2, c_win3 = st.columns(3)
     
     with c_win1:
-        st.markdown(f'<div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 12px; text-align: center;"><img src="{TROPHY_ICON_URL}" width="40" style="margin-bottom: 5px;" /><h4 style="margin: 0; color: #facc15;">Chennai Super Kings</h4><p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>5 Trophies</b></p><p style="margin: 0; font-size: 11px; color: #94a3b8;">2010, 2011, 2018, 2021, 2023</p></div>', unsafe_allow_html=True)
+        st.markdown("""
+        <div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 14px; text-align: center;">
+            <div style="font-size: 32px; line-height: 1;">🏆</div>
+            <h4 style="margin: 8px 0 2px 0; color: #facc15;">Chennai Super Kings</h4>
+            <p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>5 Trophies</b></p>
+            <p style="margin: 0; font-size: 11px; color: #94a3b8;">2010, 2011, 2018, 2021, 2023</p>
+        </div>
+        """, unsafe_allow_html=True)
         
     with c_win2:
-        st.markdown(f'<div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 12px; text-align: center;"><img src="{TROPHY_ICON_URL}" width="40" style="margin-bottom: 5px;" /><h4 style="margin: 0; color: #38bdf8;">Mumbai Indians</h4><p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>5 Trophies</b></p><p style="margin: 0; font-size: 11px; color: #94a3b8;">2013, 2015, 2017, 2019, 2020</p></div>', unsafe_allow_html=True)
+        st.markdown("""
+        <div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 14px; text-align: center;">
+            <div style="font-size: 32px; line-height: 1;">🏆</div>
+            <h4 style="margin: 8px 0 2px 0; color: #38bdf8;">Mumbai Indians</h4>
+            <p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>5 Trophies</b></p>
+            <p style="margin: 0; font-size: 11px; color: #94a3b8;">2013, 2015, 2017, 2019, 2020</p>
+        </div>
+        """, unsafe_allow_html=True)
         
     with c_win3:
-        st.markdown(f'<div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 12px; text-align: center;"><img src="{TROPHY_ICON_URL}" width="40" style="margin-bottom: 5px;" /><h4 style="margin: 0; color: #c084fc;">Kolkata Knight Riders</h4><p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>3 Trophies</b></p><p style="margin: 0; font-size: 11px; color: #94a3b8;">2012, 2014, 2024</p></div>', unsafe_allow_html=True)
+        st.markdown("""
+        <div style="background: #1e293b; border: 1px solid #eab308; border-radius: 10px; padding: 14px; text-align: center;">
+            <div style="font-size: 32px; line-height: 1;">🏆</div>
+            <h4 style="margin: 8px 0 2px 0; color: #c084fc;">Kolkata Knight Riders</h4>
+            <p style="margin: 2px 0; font-size: 13px; color: #e2e8f0;"><b>3 Trophies</b></p>
+            <p style="margin: 0; font-size: 11px; color: #94a3b8;">2012, 2014, 2024</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown("---")
     st.markdown("#### 📜 Match-by-Match Finals History (Winner vs Against)")
