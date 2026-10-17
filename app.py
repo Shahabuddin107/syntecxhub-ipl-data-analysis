@@ -10,16 +10,16 @@ st.set_page_config(
     page_icon="🏏"
 )
 
-# Initialize Backend Database
+# 1. Backend Database Setup
 bk.init_database()
 
-# Fetch Dynamic Data from SQLite Backend
+# 2. Database se direct data fetch ho raha hai
 df_teams = bk.fetch_all_teams()
 df_venues = bk.fetch_all_venues()
 df_players = bk.fetch_all_players()
 df_finals = bk.fetch_finals_history()
 
-# Broadcast Style Dark Theme CSS
+# Styling
 st.markdown("""
 <style>
     .header-container {
@@ -31,12 +31,10 @@ st.markdown("""
         border-radius: 16px;
         padding: 16px 24px;
         margin-bottom: 25px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
     .ipl-header-logo {
         width: 85px;
         height: auto;
-        filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.6));
     }
     .header-text h1 {
         margin: 0;
@@ -58,12 +56,6 @@ st.markdown("""
         display: flex;
         align-items: center;
         justify-content: space-between;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: transform 0.2s ease;
-    }
-    .team-card:hover {
-        border-color: #6366f1;
-        transform: translateY(-2px);
     }
     .rank-badge-1 {
         background: linear-gradient(135deg, #f59e0b, #d97706);
@@ -75,9 +67,7 @@ st.markdown("""
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 13px;
         margin-right: 12px;
-        flex-shrink: 0;
     }
     .rank-badge {
         background-color: #374151;
@@ -89,16 +79,13 @@ st.markdown("""
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 12px;
         margin-right: 12px;
-        flex-shrink: 0;
     }
     .team-logo-img {
         width: 42px;
         height: 42px;
         object-fit: contain;
         margin-right: 12px;
-        filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
     }
     .trophy-badge-container {
         display: inline-flex;
@@ -112,7 +99,6 @@ st.markdown("""
     .trophy-icon-symbol {
         font-size: 15px;
         margin-right: 5px;
-        filter: drop-shadow(0px 1px 3px rgba(245, 158, 11, 0.8));
     }
     .trophy-text {
         color: #fcd34d;
@@ -155,11 +141,9 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
     "🔮 ML Match Predictor"
 ])
 
-# ==========================================
 # TAB 1: STANDINGS
-# ==========================================
 with tab1:
-    st.subheader("Official All-Time Standings (Fetched via SQLite Backend)")
+    st.subheader("Official Standings (Powered by SQLite Backend)")
     col_l, col_r = st.columns([1.65, 1])
     with col_l:
         for _, t in df_teams.iterrows():
@@ -184,34 +168,15 @@ with tab1:
                         ha='left', va='center', fontsize=9, fontweight='bold', color='white')
         st.pyplot(fig)
 
-# ==========================================
 # TAB 2: PHASE BREAKDOWN
-# ==========================================
 with tab2:
     st.subheader("⚡ 10 Franchises: Phase-by-Phase Scoring Rates")
     phase_table = df_teams[["team", "short", "powerplay_rr", "middle_rr", "death_rr"]].rename(
         columns={"powerplay_rr": "Powerplay (1-6)", "middle_rr": "Middle Overs (7-15)", "death_rr": "Death Overs (16-20)"}
     )
     st.dataframe(phase_table.set_index("team"), use_container_width=True)
-    
-    col_p1, col_p2 = st.columns(2)
-    with col_p1:
-        st.markdown("#### 💥 Powerplay Aggression (Run Rate)")
-        fig_pp, ax_pp = plt.subplots(figsize=(7, 4.5))
-        sns.barplot(data=phase_table.sort_values(by="Powerplay (1-6)", ascending=False), x="Powerplay (1-6)", y="short", palette="flare", ax=ax_pp)
-        ax_pp.set_xlim(7.5, 9.2)
-        st.pyplot(fig_pp)
-        
-    with col_p2:
-        st.markdown("#### 🔥 Death Overs Finishing Power (Run Rate)")
-        fig_d, ax_d = plt.subplots(figsize=(7, 4.5))
-        sns.barplot(data=phase_table.sort_values(by="Death Overs (16-20)", ascending=False), x="Death Overs (16-20)", y="short", palette="crest", ax=ax_d)
-        ax_d.set_xlim(9.5, 12.0)
-        st.pyplot(fig_d)
 
-# ==========================================
 # TAB 3: STADIUM ANALYTICS
-# ==========================================
 with tab3:
     st.subheader("🏟️ Stadium Analytics (From SQLite Database)")
     st.dataframe(df_venues.set_index("stadium"), use_container_width=True)
@@ -224,9 +189,7 @@ with tab3:
     c_v2.metric("Chasing Win %", f"{target_v['chase_win_pct']}%")
     c_v3.metric("Avg 1st Innings Score", int(target_v["avg_1st_innings"]))
 
-# ==========================================
 # TAB 4: PLAYER HEAD TO HEAD
-# ==========================================
 with tab4:
     st.subheader("👥 Compare Two Superstars (Backend Metrics)")
     all_players = df_players["player_name"].tolist()
@@ -248,9 +211,7 @@ with tab4:
     
     st.dataframe(comp_df, use_container_width=True)
 
-# ==========================================
 # TAB 5: STRIKE RATE & RUN LEADERS
-# ==========================================
 with tab5:
     st.subheader("⚡ Batsmen Strike Rates & Historical Runs")
     col_lead1, col_lead2 = st.columns(2)
@@ -260,10 +221,6 @@ with tab5:
         fig_s, ax_s = plt.subplots(figsize=(7, 5))
         sns.barplot(data=top_sr, x="strike_rate", y="player_name", palette="magma", ax=ax_s)
         ax_s.set_xlim(0, 190)
-        for p in ax_s.patches:
-            val = p.get_width()
-            ax_s.annotate(f"{val:.1f}", (val + 1, p.get_y() + p.get_height() / 2),
-                          ha='left', va='center', fontsize=9, fontweight='bold', color='white')
         st.pyplot(fig_s)
         
     with col_lead2:
@@ -272,22 +229,14 @@ with tab5:
         fig_r, ax_r = plt.subplots(figsize=(7, 5))
         sns.barplot(data=top_runs, x="total_runs", y="player_name", palette="viridis", ax=ax_r)
         ax_r.set_xlim(0, 9000)
-        for p in ax_r.patches:
-            val = p.get_width()
-            ax_r.annotate(f"{int(val)}", (val + 50, p.get_y() + p.get_height() / 2),
-                          ha='left', va='center', fontsize=9, fontweight='bold', color='white')
         st.pyplot(fig_r)
 
-# ==========================================
 # TAB 6: FINALS HISTORY
-# ==========================================
 with tab6:
     st.subheader("🥇 IPL Finals History: Champion Winners")
     st.dataframe(df_finals.set_index("season"), use_container_width=True)
 
-# ==========================================
 # TAB 7: ML PREDICTOR
-# ==========================================
 with tab7:
     st.subheader("🔮 Machine Learning Match Predictor (Powered by Backend Model)")
     team_list = df_teams["team"].tolist()
