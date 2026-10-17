@@ -9,20 +9,20 @@ st.set_page_config(
     page_icon="🏏"
 )
 
-# Custom CSS for IPL Official Style Cards / Boxes
+# Custom Styling for Official IPL Broadcast Style Cards
 st.markdown("""
 <style>
     .team-card {
         background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
         border: 1px solid #374151;
         border-radius: 12px;
-        padding: 12px 18px;
-        margin-bottom: 12px;
+        padding: 10px 16px;
+        margin-bottom: 10px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-        transition: transform 0.2s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .team-card:hover {
         border-color: #6366f1;
@@ -38,7 +38,9 @@ st.markdown("""
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 14px;
+        font-size: 13px;
+        margin-right: 12px;
+        flex-shrink: 0;
     }
     .rank-badge {
         background-color: #374151;
@@ -51,24 +53,35 @@ st.markdown("""
         align-items: center;
         justify-content: center;
         font-size: 13px;
+        margin-right: 12px;
+        flex-shrink: 0;
     }
-    .team-title {
+    .team-logo-img {
+        width: 44px;
+        height: 44px;
+        object-fit: contain;
+        margin-right: 14px;
+        filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
+    }
+    .team-name {
         font-size: 16px;
         font-weight: 700;
         color: #ffffff;
-        margin-left: 10px;
     }
-    .stat-box {
-        text-align: right;
+    .matches-subtext {
+        font-size: 12px;
+        color: #9ca3af;
     }
-    .win-rate-text {
-        font-size: 18px;
+    .rate-val {
+        font-size: 19px;
         font-weight: 800;
         color: #10b981;
     }
-    .matches-text {
-        font-size: 12px;
+    .rate-label {
+        font-size: 11px;
         color: #9ca3af;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -76,81 +89,81 @@ st.markdown("""
 st.title("🏏 IPL Advanced Analytics & Performance Dashboard")
 st.markdown("Official style Standings, Team Win Percentages, and Player Comparisons.")
 
-# Reliable High-Res PNG Logos for all 10 Teams
+# 100% Real Official Transparent PNG Logos from Google Sports CDN
 TEAM_DATA = [
     {
         "rank": 1,
         "team": "Chennai Super Kings",
         "short": "CSK",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Chennai_Super_Kings_Logo.svg/200px-Chennai_Super_Kings_Logo.svg.png",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/5G8eFjkPKNalIgL2FOtovg_500x500.png",
         "played": 50, "wins": 49, "rate": 98.0, "color": "#facc15"
     },
     {
         "rank": 2,
-        "team": "Royal Challengers Bangalore",
+        "team": "Royal Challengers Bengaluru",
         "short": "RCB",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/Royal_Challengers_Bangalore_2020.svg/200px-Royal_Challengers_Bangalore_2020.svg.png",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/xUS54-BA0dFZPMtbCiHkzQ_500x500.png",
         "played": 50, "wins": 48, "rate": 96.0, "color": "#ef4444"
     },
     {
         "rank": 3,
         "team": "Delhi Capitals",
         "short": "DC",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f5/Delhi_Capitals_Logo.svg/200px-Delhi_Capitals_Logo.svg.png",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/HzUX6_c8j7pwBCetmct2FQ_500x500.png",
         "played": 40, "wins": 38, "rate": 95.0, "color": "#3b82f6"
     },
     {
         "rank": 4,
         "team": "Mumbai Indians",
         "short": "MI",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Mumbai_Indians_Logo.svg/200px-Mumbai_Indians_Logo.svg.png",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/HmiWb77BmJDs6sHvn77v_Q_500x500.png",
         "played": 20, "wins": 19, "rate": 95.0, "color": "#0284c7"
     },
     {
         "rank": 5,
         "team": "Kolkata Knight Riders",
         "short": "KKR",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Kolkata_Knight_Riders_Logo.svg/200px-Kolkata_Knight_Riders_Logo.svg.png",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/bV4wF2dFs6IPc2BMtjgGZw_500x500.png",
         "played": 20, "wins": 19, "rate": 95.0, "color": "#7c3aed"
     },
     {
         "rank": 6,
         "team": "Sunrisers Hyderabad",
         "short": "SRH",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Sunrisers_Hyderabad.svg/200px-Sunrisers_Hyderabad.svg.png",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/W0OCBYc05c5MFMrctF62kg_500x500.png",
         "played": 20, "wins": 19, "rate": 95.0, "color": "#f97316"
     },
     {
         "rank": 7,
         "team": "Rajasthan Royals",
         "short": "RR",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Rajasthan_Royals_Logo.svg/200px-Rajasthan_Royals_Logo.svg.png",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/GqIU6xhQAnCpy_Cbr2LZRA_500x500.png",
         "played": 20, "wins": 19, "rate": 95.0, "color": "#ec4899"
     },
     {
         "rank": 8,
         "team": "Lucknow Super Giants",
         "short": "LSG",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/Lucknow_Super_Giants_IPL_Logo.svg/200px-Lucknow_Super_Giants_IPL_Logo.svg.png",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/OqrL0ztLy13FBpvuF6GCBQ_500x500.png",
         "played": 20, "wins": 19, "rate": 95.0, "color": "#06b6d4"
     },
     {
         "rank": 9,
         "team": "Gujarat Titans",
         "short": "GT",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/09/Gujarat_Titans_Logo.svg/200px-Gujarat_Titans_Logo.svg.png",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/aTE8G7q-OcAobWvDd6sizQ_500x500.png",
         "played": 20, "wins": 14, "rate": 70.0, "color": "#1e293b"
     },
     {
         "rank": 10,
         "team": "Punjab Kings",
         "short": "PBKS",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Punjab_Kings_Logo.svg/200px-Punjab_Kings_Logo.svg.png",
+        "logo": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/XUAb4iA3XozYbH_cXQCryQ_500x500.png",
         "played": 20, "wins": 12, "rate": 60.0, "color": "#dc2626"
     }
 ]
 
-# Comprehensive All-Time Player Database
+# Player Database
 PLAYER_DATABASE = {
     "MS Dhoni": {"Total Runs": 5082, "Balls Faced": 3739, "Strike Rate": 135.92, "Fours (4s)": 349, "Sixes (6s)": 239, "Highest Score": 84},
     "V Kohli": {"Total Runs": 7263, "Balls Faced": 5586, "Strike Rate": 130.02, "Fours (4s)": 643, "Sixes (6s)": 234, "Highest Score": 113},
@@ -177,7 +190,7 @@ PLAYER_DATABASE = {
 tab1, tab2, tab3 = st.tabs(["🏆 Official Team Standings & Boxes", "👥 Player Comparison", "🔥 Top Scorers & Strike Rates"])
 
 # ==========================================
-# TAB 1: OFFICIAL TEAM CARDS & BOXES
+# TAB 1: OFFICIAL TEAM CARDS & REAL LOGOS
 # ==========================================
 with tab1:
     st.subheader("Official IPL Team Standings & Win Rates")
@@ -185,22 +198,22 @@ with tab1:
     col_cards, col_graph = st.columns([1.5, 1])
     
     with col_cards:
-        st.markdown("#### 🏏 Team Leaderboard (Professional Cards)")
+        st.markdown("#### 🏏 Team Leaderboard")
         for t in TEAM_DATA:
             badge_class = "rank-badge-1" if t["rank"] == 1 else "rank-badge"
             card_html = f"""
-            <div class="team-card" style="border-left: 5px solid {t['color']};">
+            <div class="team-card" style="border-left: 6px solid {t['color']};">
                 <div style="display: flex; align-items: center;">
                     <div class="{badge_class}">#{t['rank']}</div>
-                    <img src="{t['logo']}" width="38" style="margin: 0 12px; border-radius: 4px;" />
+                    <img src="{t['logo']}" class="team-logo-img" alt="{t['team']}" />
                     <div>
-                        <div class="team-title">{t['team']}</div>
-                        <div class="matches-text">Played: {t['played']} | Won: {t['wins']}</div>
+                        <div class="team-name">{t['team']}</div>
+                        <div class="matches-subtext">Matches: {t['played']} | Won: {t['wins']}</div>
                     </div>
                 </div>
-                <div class="stat-box">
-                    <div class="win-rate-text">{t['rate']}%</div>
-                    <div class="matches-text">Win Rate</div>
+                <div style="text-align: right;">
+                    <div class="rate-val">{t['rate']}%</div>
+                    <div class="rate-label">Win Rate</div>
                 </div>
             </div>
             """
@@ -209,7 +222,7 @@ with tab1:
     with col_graph:
         st.markdown("#### 📊 Comparative Win Rate Chart")
         plot_df = pd.DataFrame(TEAM_DATA)
-        fig, ax = plt.subplots(figsize=(6, 8))
+        fig, ax = plt.subplots(figsize=(6, 8.5))
         sns.barplot(data=plot_df, x="rate", y="short", palette="mako", ax=ax)
         ax.set_title("Win Rate (%) by Franchise", fontsize=12, weight="bold")
         ax.set_xlabel("Win Rate (%)")
