@@ -10,7 +10,7 @@ st.title("🏏 IPL Advanced Analytics & Performance Dashboard")
 st.markdown("Comprehensive analysis of IPL match outcomes, team win percentages, and player comparisons.")
 
 # Load datasets
-@st.cache_data
+# Cache hata diya taaki real-time data update ho
 def load_data():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     matches = pd.read_csv(os.path.join(base_dir, "data", "matches.csv"))
