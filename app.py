@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 st.set_page_config(
     page_title="IPL Official Analytics Hub (2008-2026)",
@@ -135,7 +136,7 @@ st.markdown("""
 IPL_LOGO_URL = "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Indian_Premier_League_Official_Logo.svg/500px-Indian_Premier_League_Official_Logo.svg.png"
 TROPHY_ICON_URL = "https://cdn-icons-png.flaticon.com/512/861/861512.png"
 
-st.markdown(f'<div class="header-container"><img src="{IPL_LOGO_URL}" class="ipl-header-logo" alt="IPL Logo" /><div class="header-text"><h1>Indian Premier League Official Analytics Hub (2008 – 2026)</h1><p>Franchise standings, championship trophies, head-to-head records, match predictor, and superstar statistics.</p></div></div>', unsafe_allow_html=True)
+st.markdown(f'<div class="header-container"><img src="{IPL_LOGO_URL}" class="ipl-header-logo" alt="IPL Logo" /><div class="header-text"><h1>Indian Premier League Official Analytics Hub (2008 – 2026)</h1><p>Franchise standings, championship trophies, player strike rates, head-to-head records, and match predictor.</p></div></div>', unsafe_allow_html=True)
 
 # 10 Official Teams Data with Titles Count
 TEAMS_DATA = [
@@ -248,6 +249,42 @@ H2H_DATA = {
     ]
 }
 
+# Rich All-Time Player Database with Exact Strike Rates
+PLAYER_DATABASE = {
+    "Virat Kohli": {"Total Runs": 8004, "Balls": 6092, "Strike Rate": 131.38, "4s": 705, "6s": 272, "Highest Score": 113, "Span": "2008-2024"},
+    "MS Dhoni": {"Total Runs": 5082, "Balls": 3739, "Strike Rate": 135.92, "4s": 349, "6s": 239, "Highest Score": 84, "Span": "2008-2024"},
+    "Rohit Sharma": {"Total Runs": 6628, "Balls": 5055, "Strike Rate": 131.11, "4s": 599, "6s": 280, "Highest Score": 109, "Span": "2008-2024"},
+    "AB de Villiers": {"Total Runs": 5162, "Balls": 3403, "Strike Rate": 151.69, "4s": 413, "6s": 251, "Highest Score": 133, "Span": "2008-2021"},
+    "David Warner": {"Total Runs": 6565, "Balls": 4697, "Strike Rate": 139.77, "4s": 663, "6s": 236, "Highest Score": 126, "Span": "2009-2024"},
+    "Shikhar Dhawan": {"Total Runs": 6769, "Balls": 5326, "Strike Rate": 127.14, "4s": 768, "6s": 152, "Highest Score": 106, "Span": "2008-2024"},
+    "Suresh Raina": {"Total Runs": 5528, "Balls": 4043, "Strike Rate": 136.73, "4s": 506, "6s": 203, "Highest Score": 100, "Span": "2008-2021"},
+    "Chris Gayle": {"Total Runs": 4965, "Balls": 3333, "Strike Rate": 148.96, "4s": 405, "6s": 357, "Highest Score": 175, "Span": "2009-2021"},
+    "KL Rahul": {"Total Runs": 4683, "Balls": 3479, "Strike Rate": 134.61, "4s": 401, "6s": 187, "Highest Score": 132, "Span": "2013-2024"},
+    "Andre Russell": {"Total Runs": 2484, "Balls": 1420, "Strike Rate": 174.93, "4s": 169, "6s": 209, "Highest Score": 88, "Span": "2012-2024"},
+    "Rishabh Pant": {"Total Runs": 3284, "Balls": 2217, "Strike Rate": 148.13, "4s": 295, "6s": 154, "Highest Score": 128, "Span": "2016-2024"},
+    "Suryakumar Yadav": {"Total Runs": 3594, "Balls": 2473, "Strike Rate": 145.33, "4s": 381, "6s": 130, "Highest Score": 103, "Span": "2012-2024"},
+    "Sanju Samson": {"Total Runs": 4419, "Balls": 3181, "Strike Rate": 138.92, "4s": 359, "6s": 206, "Highest Score": 119, "Span": "2013-2024"},
+    "Shubman Gill": {"Total Runs": 3216, "Balls": 2370, "Strike Rate": 135.70, "4s": 313, "6s": 95, "Highest Score": 129, "Span": "2018-2024"},
+    "Hardik Pandya": {"Total Runs": 2525, "Balls": 1731, "Strike Rate": 145.87, "4s": 187, "6s": 139, "Highest Score": 91, "Span": "2015-2024"},
+    "Jos Buttler": {"Total Runs": 3582, "Balls": 2429, "Strike Rate": 147.47, "4s": 359, "6s": 165, "Highest Score": 124, "Span": "2016-2024"},
+    "Faf du Plessis": {"Total Runs": 4571, "Balls": 3354, "Strike Rate": 136.28, "4s": 420, "6s": 165, "Highest Score": 96, "Span": "2012-2024"},
+    "Glenn Maxwell": {"Total Runs": 2771, "Balls": 1764, "Strike Rate": 157.09, "4s": 230, "6s": 162, "Highest Score": 95, "Span": "2012-2024"}
+}
+
+# Optional dynamic backend loader from CSV
+@st.cache_data
+def load_csv_data():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    deliv_path = os.path.join(base_dir, "data", "deliveries.csv")
+    if os.path.exists(deliv_path):
+        try:
+            return pd.read_csv(deliv_path)
+        except Exception:
+            return None
+    return None
+
+deliveries_df = load_csv_data()
+
 # Bowlers Data
 BOWLERS_DATA = [
     {"Player": "Yuzvendra Chahal", "Wickets": 205, "Matches": 160, "Economy": 7.66, "Best": "5/40"},
@@ -260,17 +297,18 @@ BOWLERS_DATA = [
     {"Player": "Rashid Khan", "Wickets": 149, "Matches": 121, "Economy": 6.82, "Best": "4/24"}
 ]
 
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-    "🏆 Official Standings & Trophy Badges",
-    "🥇 IPL Finals History & Winners",
-    "⚔️ Head-to-Head",
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    "🏆 Standings & Trophies",
+    "👥 Player Head-to-Head",
+    "⚡ Strike Rate & Run Leaders",
+    "🥇 Finals History",
+    "⚔️ Team Head-to-Head",
     "🎯 Bowlers Analytics",
-    "🧢 Orange & Purple Caps",
     "🔮 Match Predictor"
 ])
 
 # ==========================================
-# TAB 1: STANDINGS WITH TROPHY PICTURE (FIXED SINGLE-LINE HTML)
+# TAB 1: STANDINGS
 # ==========================================
 with tab1:
     st.subheader("All-Time Standings & Championship Winners (2008 – 2026)")
@@ -284,7 +322,6 @@ with tab1:
             else:
                 trophy_badge_html = f'<span style="background: rgba(156, 163, 175, 0.15); border: 1px solid #4b5563; padding: 2px 8px; border-radius: 12px; font-size: 11px; color: #9ca3af; margin-left: 8px;">{t["trophies_count"]}</span>'
 
-            # Clean single-line HTML rendering
             card_html = f'<div class="team-card" style="border-left: 6px solid {t["color"]};"><div style="display: flex; align-items: center;"><div class="{badge_class}">{t["rank"]}</div><img src="{t["logo"]}" class="team-logo-img" alt="{t["team"]}" /><div><div style="display: flex; align-items: center; flex-wrap: wrap;"><span class="team-name">{t["team"]}</span>{trophy_badge_html}</div><div class="matches-subtext">Matches: {t["played"]} | Won: {t["wins"]} | Lost: {t["losses"]} | NR: {t["nr"]}</div></div></div><div style="text-align: right;"><div class="rate-val">{t["rate"]}%</div><div class="rate-label">Win Rate</div></div></div>'
             st.markdown(card_html, unsafe_allow_html=True)
             
@@ -301,9 +338,84 @@ with tab1:
         st.pyplot(fig)
 
 # ==========================================
-# TAB 2: IPL FINALS & TROPHY PICTURE TABLE
+# TAB 2: PLAYER HEAD-TO-HEAD COMPARISON
 # ==========================================
 with tab2:
+    st.subheader("👥 Compare Two Superstars (All-Time Stats & Strike Rates)")
+    all_players = sorted(list(PLAYER_DATABASE.keys()))
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        p1 = st.selectbox("Select Player 1", all_players, index=all_players.index("MS Dhoni"))
+    with col2:
+        p2 = st.selectbox("Select Player 2", all_players, index=all_players.index("Virat Kohli"))
+        
+    s1 = PLAYER_DATABASE[p1]
+    s2 = PLAYER_DATABASE[p2]
+    
+    comp_df = pd.DataFrame({
+        "Metric": ["Career Span", "Total Runs", "Balls Faced", "Strike Rate", "Fours (4s)", "Sixes (6s)", "Highest Score"],
+        p1: [s1["Span"], s1["Total Runs"], s1["Balls"], s1["Strike Rate"], s1["4s"], s1["6s"], s1["Highest Score"]],
+        p2: [s2["Span"], s2["Total Runs"], s2["Balls"], s2["Strike Rate"], s2["4s"], s2["6s"], s2["Highest Score"]]
+    }).set_index("Metric")
+    
+    st.markdown("### 📊 Head-to-Head Matrix")
+    st.dataframe(comp_df, use_container_width=True)
+    
+    # Comparison Bar Chart
+    chart_data = pd.DataFrame({
+        'Metric': ['Total Runs', 'Strike Rate', 'Fours (4s)', 'Sixes (6s)'],
+        p1: [s1['Total Runs'], s1['Strike Rate'], s1['4s'], s1['6s']],
+        p2: [s2['Total Runs'], s2['Strike Rate'], s2['4s'], s2['6s']]
+    }).melt(id_vars='Metric', var_name='Player', value_name='Value')
+    
+    fig_comp, ax_comp = plt.subplots(figsize=(9, 4.5))
+    sns.barplot(data=chart_data, x='Metric', y='Value', hue='Player', palette="viridis", ax=ax_comp)
+    ax_comp.set_title(f"{p1} vs {p2} Comparative Metrics", fontsize=12, weight="bold")
+    st.pyplot(fig_comp)
+
+# ==========================================
+# TAB 3: STRIKE RATES & RUN LEADERS
+# ==========================================
+with tab3:
+    st.subheader("⚡ All-Time Batsmen Strike Rates & Run Scorer Rankings")
+    df_players = pd.DataFrame([{"Player": k, **v} for k, v in PLAYER_DATABASE.items()])
+    
+    col_lead1, col_lead2 = st.columns(2)
+    with col_lead1:
+        st.markdown("#### 🏏 Highest Strike Rates (Min. 1000 Balls)")
+        top_sr = df_players.sort_values(by="Strike Rate", ascending=False).head(10)
+        fig_s, ax_s = plt.subplots(figsize=(7, 5))
+        sns.barplot(data=top_sr, x="Strike Rate", y="Player", palette="magma", ax=ax_s)
+        ax_s.set_title("Top 10 Strike Rates in IPL History", fontsize=11, weight="bold")
+        ax_s.set_xlim(0, 190)
+        for p in ax_s.patches:
+            val = p.get_width()
+            ax_s.annotate(f"{val:.1f}", (val + 1, p.get_y() + p.get_height() / 2),
+                          ha='left', va='center', fontsize=9, fontweight='bold', color='white')
+        st.pyplot(fig_s)
+        
+    with col_lead2:
+        st.markdown("#### 🏅 All-Time Highest Run Scorers")
+        top_runs = df_players.sort_values(by="Total Runs", ascending=False).head(10)
+        fig_r, ax_r = plt.subplots(figsize=(7, 5))
+        sns.barplot(data=top_runs, x="Total Runs", y="Player", palette="viridis", ax=ax_r)
+        ax_r.set_title("Top 10 Run Getters in IPL History", fontsize=11, weight="bold")
+        ax_r.set_xlim(0, 9000)
+        for p in ax_r.patches:
+            val = p.get_width()
+            ax_r.annotate(f"{int(val)}", (val + 50, p.get_y() + p.get_height() / 2),
+                          ha='left', va='center', fontsize=9, fontweight='bold', color='white')
+        st.pyplot(fig_r)
+        
+    st.markdown("---")
+    st.markdown("#### 📋 Complete Player Leaderboard")
+    st.dataframe(df_players.sort_values(by="Total Runs", ascending=False).set_index("Player"), use_container_width=True)
+
+# ==========================================
+# TAB 4: FINALS HISTORY
+# ==========================================
+with tab4:
     st.subheader("🥇 IPL Finals History: Champion Winners with Trophies")
     
     st.markdown("#### 🏆 All-Time Champions Cards")
@@ -324,9 +436,9 @@ with tab2:
     st.dataframe(finals_df.set_index("Season"), use_container_width=True)
 
 # ==========================================
-# TAB 3: HEAD TO HEAD
+# TAB 5: HEAD TO HEAD
 # ==========================================
-with tab3:
+with tab5:
     st.subheader("Head-to-Head Matrix")
     team_names = [t["team"] for t in TEAMS_DATA]
     sel_team = st.selectbox("Select Team:", team_names, index=0)
@@ -336,9 +448,9 @@ with tab3:
     st.dataframe(h_df.set_index("Opponent"), use_container_width=True)
 
 # ==========================================
-# TAB 4: BOWLERS
+# TAB 6: BOWLERS
 # ==========================================
-with tab4:
+with tab6:
     st.subheader("🎯 IPL All-Time Leading Wicket Takers")
     b_df = pd.DataFrame(BOWLERS_DATA)
     c1, c2 = st.columns([1.2, 1])
@@ -351,36 +463,9 @@ with tab4:
         st.pyplot(fig_b)
 
 # ==========================================
-# TAB 5: CAPS
+# TAB 7: MATCH PREDICTOR
 # ==========================================
-with tab5:
-    st.subheader("🧢 Legendary Cap Holders")
-    col_cap1, col_cap2 = st.columns(2)
-    with col_cap1:
-        st.markdown("### 🟠 Top Orange Cap Records (Most Runs in a Season)")
-        orange_df = pd.DataFrame([
-            {"Season": 2016, "Batter": "Virat Kohli", "Runs": 973, "Team": "RCB"},
-            {"Season": 2023, "Batter": "Shubman Gill", "Runs": 890, "Team": "GT"},
-            {"Season": 2022, "Batter": "Jos Buttler", "Runs": 863, "Team": "RR"},
-            {"Season": 2016, "Batter": "David Warner", "Runs": 848, "Team": "SRH"},
-            {"Season": 2018, "Batter": "Kane Williamson", "Runs": 735, "Team": "SRH"}
-        ])
-        st.dataframe(orange_df.set_index("Season"), use_container_width=True)
-    with col_cap2:
-        st.markdown("### 🟣 Top Purple Cap Records (Most Wickets in a Season)")
-        purple_df = pd.DataFrame([
-            {"Season": 2021, "Bowler": "Harshal Patel", "Wickets": 32, "Team": "RCB"},
-            {"Season": 2013, "Bowler": "Dwayne Bravo", "Wickets": 32, "Team": "CSK"},
-            {"Season": 2020, "Bowler": "Kagiso Rabada", "Wickets": 30, "Team": "DC"},
-            {"Season": 2023, "Bowler": "Mohammed Shami", "Wickets": 28, "Team": "GT"},
-            {"Season": 2022, "Bowler": "Yuzvendra Chahal", "Wickets": 27, "Team": "RR"}
-        ])
-        st.dataframe(purple_df.set_index("Season"), use_container_width=True)
-
-# ==========================================
-# TAB 6: MATCH PREDICTOR
-# ==========================================
-with tab6:
+with tab7:
     st.subheader("🔮 IPL Match Outcome Predictor")
     st.markdown("Simulate win probability based on all-time head-to-head records & toss dynamics.")
     cp1, cp2, cp3 = st.columns(3)
