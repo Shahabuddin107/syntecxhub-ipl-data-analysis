@@ -12,6 +12,33 @@ st.set_page_config(
 # Broadcast Style Dark Theme CSS
 st.markdown("""
 <style>
+    .header-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+        border: 1px solid #374151;
+        border-radius: 16px;
+        padding: 16px 24px;
+        margin-bottom: 25px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+    .ipl-header-logo {
+        width: 85px;
+        height: auto;
+        filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.6));
+    }
+    .header-text h1 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 800;
+        color: #ffffff;
+    }
+    .header-text p {
+        margin: 4px 0 0 0;
+        color: #94a3b8;
+        font-size: 14px;
+    }
     .team-card {
         background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
         border: 1px solid #374151;
@@ -86,10 +113,20 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🏏 IPL Comprehensive Analytics & History (2008 – 2026)")
-st.markdown("All-time team performance, Head-to-Head win/loss records, franchise logos, and player leaderboards.")
+# Official IPL Header with Tournament Logo
+IPL_LOGO_URL = "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Indian_Premier_League_Official_Logo.svg/500px-Indian_Premier_League_Official_Logo.svg.png"
 
-# 10 Official Franchises with Real Google Sports CDN Logos & Historical Records (2008-2026)
+st.markdown(f"""
+<div class="header-container">
+    <img src="{IPL_LOGO_URL}" class="ipl-header-logo" alt="IPL Logo" />
+    <div class="header-text">
+        <h1>Indian Premier League Official Analytics Hub (2008 – 2026)</h1>
+        <p>Comprehensive franchise standings, head-to-head records, win rates, and all-time superstar statistics.</p>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# 10 Official Teams Data
 TEAMS_DATA = [
     {
         "rank": 1,
@@ -163,7 +200,7 @@ TEAMS_DATA = [
     }
 ]
 
-# Head to Head Matrix Data (2008 - 2026)
+# Head-to-Head Dataset (2008-2026)
 H2H_DATA = {
     "Chennai Super Kings": [
         {"Opponent": "Mumbai Indians", "Played": 36, "Won": 16, "Lost": 20},
@@ -277,7 +314,7 @@ H2H_DATA = {
     ]
 }
 
-# All-Time Roster of IPL Superstars
+# Superstar Player Database
 PLAYER_DATABASE = {
     "MS Dhoni": {"Total Runs": 5082, "Balls": 3739, "SR": 135.92, "4s": 349, "6s": 239, "HS": 84, "Span": "2008-2024"},
     "V Kohli": {"Total Runs": 8004, "Balls": 6092, "SR": 131.38, "4s": 705, "6s": 272, "HS": 113, "Span": "2008-2024"},
@@ -300,18 +337,14 @@ tab1, tab2, tab3, tab4 = st.tabs([
     "🔥 All-Time Leaders"
 ])
 
-# ==========================================
-# TAB 1: ALL-TIME TEAM STANDINGS (NO HASHTAG)
-# ==========================================
+# TAB 1: STANDINGS
 with tab1:
     st.subheader("Official All-Time IPL Team Standings (2008 – 2026)")
-    
     col_left, col_right = st.columns([1.5, 1])
     
     with col_left:
         st.markdown("#### 🏏 All-Time Franchise Leaderboard")
         for t in TEAMS_DATA:
-            # Clean number without '#' symbol
             badge_class = "rank-badge-1" if t["rank"] == 1 else "rank-badge"
             card_html = f"""
             <div class="team-card" style="border-left: 6px solid {t['color']};">
@@ -346,41 +379,34 @@ with tab1:
                         ha='left', va='center', fontsize=9, fontweight='bold', color='white')
         st.pyplot(fig)
 
-# ==========================================
-# TAB 2: HEAD TO HEAD (TEAM VS TEAM)
-# ==========================================
+# TAB 2: HEAD TO HEAD
 with tab2:
     st.subheader("⚔️ Head-to-Head: Kis Team Ne Kiske Samne Kitna Jeeta / Haara")
     team_names = [t["team"] for t in TEAMS_DATA]
-    
-    selected_team = st.selectbox("Select Team to View All-Time Record Against Opponents:", team_names, index=0)
+    selected_team = st.selectbox("Select Team to View Record Against Opponents:", team_names, index=0)
     
     h2h_list = H2H_DATA.get(selected_team, [])
     if h2h_list:
         h2h_df = pd.DataFrame(h2h_list)
         h2h_df["Win %"] = ((h2h_df["Won"] / h2h_df["Played"]) * 100).round(2)
-        
         col_h1, col_h2 = st.columns([1.3, 1.2])
         
         with col_h1:
-            st.markdown(f"#### Detailed Match Breakdown: **{selected_team}**")
+            st.markdown(f"#### Match Breakdown: **{selected_team}**")
             st.dataframe(h2h_df.set_index("Opponent"), use_container_width=True)
             
         with col_h2:
-            st.markdown(f"#### Wins vs Losses against Each Opponent")
+            st.markdown("#### Wins vs Losses against Each Opponent")
             plot_h2h = h2h_df.melt(id_vars=["Opponent", "Played", "Win %"], value_vars=["Won", "Lost"], var_name="Result", value_name="Matches")
             fig_h2h, ax_h2h = plt.subplots(figsize=(7, 5.5))
             sns.barplot(data=plot_h2h, y="Opponent", x="Matches", hue="Result", palette={"Won": "#10b981", "Lost": "#ef4444"}, ax=ax_h2h)
-            ax_h2h.set_title(f"{selected_team} Head-to-Head Record", fontsize=11, weight="bold")
+            ax_h2h.set_title(f"{selected_team} Head-to-Head", fontsize=11, weight="bold")
             st.pyplot(fig_h2h)
 
-# ==========================================
-# TAB 3: PLAYER HEAD-TO-HEAD COMPARISON
-# ==========================================
+# TAB 3: PLAYER COMPARISON
 with tab3:
     st.subheader("👥 Compare Two Superstars (2008 – 2026)")
     all_players = sorted(list(PLAYER_DATABASE.keys()))
-    
     col1, col2 = st.columns(2)
     with col1:
         p1 = st.selectbox("Select Player 1", all_players, index=all_players.index("MS Dhoni"))
@@ -389,22 +415,17 @@ with tab3:
         
     s1 = PLAYER_DATABASE[p1]
     s2 = PLAYER_DATABASE[p2]
-    
     comp_df = pd.DataFrame({
         "Metric": ["Span", "Total Runs", "Balls Faced", "Strike Rate", "Fours (4s)", "Sixes (6s)", "Highest Score"],
         p1: [s1["Span"], s1["Total Runs"], s1["Balls"], s1["SR"], s1["4s"], s1["6s"], s1["HS"]],
         p2: [s2["Span"], s2["Total Runs"], s2["Balls"], s2["SR"], s2["4s"], s2["6s"], s2["HS"]]
     }).set_index("Metric")
-    
     st.dataframe(comp_df, use_container_width=True)
 
-# ==========================================
-# TAB 4: ALL-TIME TOURNAMENT LEADERS
-# ==========================================
+# TAB 4: ALL-TIME LEADERS
 with tab4:
     st.subheader("🔥 IPL All-Time Historical Leaders (2008 – 2026)")
     df_players = pd.DataFrame([{"Player": k, **v} for k, v in PLAYER_DATABASE.items()])
-    
     col_t1, col_t2 = st.columns(2)
     with col_t1:
         top_runs = df_players.sort_values(by="Total Runs", ascending=False).head(8)
