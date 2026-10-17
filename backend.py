@@ -1,7 +1,6 @@
 import sqlite3
 import pandas as pd
 import numpy as np
-import os
 
 DB_NAME = "ipl_analytics.db"
 
@@ -9,11 +8,9 @@ def get_connection():
     return sqlite3.connect(DB_NAME)
 
 def init_database():
-    """Initializes SQLite database with all historical tables and seeds data."""
     conn = get_connection()
     cursor = conn.cursor()
 
-    # 1. Franchises Standings Table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS teams (
         rank INTEGER PRIMARY KEY,
@@ -35,7 +32,6 @@ def init_database():
     );
     """)
 
-    # 2. Venues & Stadiums Table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS venues (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -48,7 +44,6 @@ def init_database():
     );
     """)
 
-    # 3. Superstars Batsmen & Bowlers Table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS players (
         player_name TEXT PRIMARY KEY,
@@ -66,7 +61,6 @@ def init_database():
     );
     """)
 
-    # 4. Finals History Table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS finals (
         season INTEGER PRIMARY KEY,
@@ -77,7 +71,6 @@ def init_database():
     );
     """)
 
-    # Check if already seeded
     cursor.execute("SELECT COUNT(*) FROM teams;")
     if cursor.fetchone()[0] == 0:
         seed_all_data(cursor)
@@ -157,7 +150,6 @@ def seed_all_data(cursor):
     ]
     cursor.executemany("INSERT INTO finals VALUES (?,?,?,?,?)", finals_data)
 
-# Backend Query APIs
 def fetch_all_teams():
     conn = get_connection()
     df = pd.read_sql_query("SELECT * FROM teams ORDER BY rank ASC", conn)
@@ -182,8 +174,7 @@ def fetch_finals_history():
     conn.close()
     return df
 
-def predict_match_outcome(team1, team2, toss_winner, venue_name=None):
-    """Machine learning statistical inference engine for match outcome prediction."""
+def predict_match_outcome(team1, team2, toss_winner):
     conn = get_connection()
     t1_row = pd.read_sql_query("SELECT rate, powerplay_rr, death_rr FROM teams WHERE team = ?", conn, params=(team1,))
     t2_row = pd.read_sql_query("SELECT rate, powerplay_rr, death_rr FROM teams WHERE team = ?", conn, params=(team2,))
@@ -192,7 +183,6 @@ def predict_match_outcome(team1, team2, toss_winner, venue_name=None):
     if t1_row.empty or t2_row.empty:
         return 50.0, 50.0
 
-    # Feature weights: Overall Win Rate (50%), Death Overs Run Rate (25%), Powerplay (15%), Toss (10%)
     score1 = (t1_row['rate'].values[0] * 0.5) + (t1_row['death_rr'].values[0] * 2.5) + (t1_row['powerplay_rr'].values[0] * 1.5)
     score2 = (t2_row['rate'].values[0] * 0.5) + (t2_row['death_rr'].values[0] * 2.5) + (t2_row['powerplay_rr'].values[0] * 1.5)
 
