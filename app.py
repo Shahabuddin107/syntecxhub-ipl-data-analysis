@@ -10,17 +10,16 @@ st.set_page_config(
     page_icon="🏏"
 )
 
-# 1. Backend Database Setup
+# 1. Initialize SQLite Backend Database
 bk.init_database()
-st.sidebar.success("✅ SQLite Database Connected & Synced!")
 
-# 2. Database se direct data fetch ho raha hai
+# 2. Fetch Clean Dynamic Data via Backend Queries
 df_teams = bk.fetch_all_teams()
 df_venues = bk.fetch_all_venues()
 df_players = bk.fetch_all_players()
 df_finals = bk.fetch_finals_history()
 
-# Styling
+# 3. Broadcast Theme Dark UI Styling
 st.markdown("""
 <style>
     .header-container {
@@ -130,8 +129,9 @@ st.markdown("""
 
 IPL_LOGO_URL = "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Indian_Premier_League_Official_Logo.svg/500px-Indian_Premier_League_Official_Logo.svg.png"
 
-st.markdown(f'<div class="header-container"><img src="{IPL_LOGO_URL}" class="ipl-header-logo" alt="IPL Logo" /><div class="header-text"><h1>Indian Premier League Official Analytics Hub (2008 – 2026)</h1><p>Full-Stack Analytics: SQLite Backend, Machine Learning Predictor, Stadium Insights & Player Metrics.</p></div></div>', unsafe_allow_html=True)
+st.markdown(f'<div class="header-container"><img src="{IPL_LOGO_URL}" class="ipl-header-logo" alt="IPL Logo" /><div class="header-text"><h1>Indian Premier League Official Analytics Hub (2008 – 2026)</h1><p>Full-Stack Analytics: SQLite Backend Database, ML Predictor, Stadium Insights & Player Metrics.</p></div></div>', unsafe_allow_html=True)
 
+# 4. Multi-Section Analytical Tabs
 tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
     "🏆 Standings & Trophies",
     "⚡ All Teams Phase Breakdown",
@@ -142,7 +142,9 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
     "🔮 ML Match Predictor"
 ])
 
+# ==========================================
 # TAB 1: STANDINGS
+# ==========================================
 with tab1:
     st.subheader("Official Standings (Powered by SQLite Backend)")
     col_l, col_r = st.columns([1.65, 1])
@@ -169,7 +171,9 @@ with tab1:
                         ha='left', va='center', fontsize=9, fontweight='bold', color='white')
         st.pyplot(fig)
 
+# ==========================================
 # TAB 2: PHASE BREAKDOWN
+# ==========================================
 with tab2:
     st.subheader("⚡ 10 Franchises: Phase-by-Phase Scoring Rates")
     phase_table = df_teams[["team", "short", "powerplay_rr", "middle_rr", "death_rr"]].rename(
@@ -177,7 +181,9 @@ with tab2:
     )
     st.dataframe(phase_table.set_index("team"), use_container_width=True)
 
+# ==========================================
 # TAB 3: STADIUM ANALYTICS
+# ==========================================
 with tab3:
     st.subheader("🏟️ Stadium Analytics (From SQLite Database)")
     st.dataframe(df_venues.set_index("stadium"), use_container_width=True)
@@ -190,7 +196,9 @@ with tab3:
     c_v2.metric("Chasing Win %", f"{target_v['chase_win_pct']}%")
     c_v3.metric("Avg 1st Innings Score", int(target_v["avg_1st_innings"]))
 
+# ==========================================
 # TAB 4: PLAYER HEAD TO HEAD
+# ==========================================
 with tab4:
     st.subheader("👥 Compare Two Superstars (Backend Metrics)")
     all_players = df_players["player_name"].tolist()
@@ -212,7 +220,9 @@ with tab4:
     
     st.dataframe(comp_df, use_container_width=True)
 
+# ==========================================
 # TAB 5: STRIKE RATE & RUN LEADERS
+# ==========================================
 with tab5:
     st.subheader("⚡ Batsmen Strike Rates & Historical Runs")
     col_lead1, col_lead2 = st.columns(2)
@@ -232,12 +242,16 @@ with tab5:
         ax_r.set_xlim(0, 9000)
         st.pyplot(fig_r)
 
+# ==========================================
 # TAB 6: FINALS HISTORY
+# ==========================================
 with tab6:
     st.subheader("🥇 IPL Finals History: Champion Winners")
     st.dataframe(df_finals.set_index("season"), use_container_width=True)
 
+# ==========================================
 # TAB 7: ML PREDICTOR
+# ==========================================
 with tab7:
     st.subheader("🔮 Machine Learning Match Predictor (Powered by Backend Model)")
     team_list = df_teams["team"].tolist()
