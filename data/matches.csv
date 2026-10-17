@@ -1,81 +1,110 @@
 id,season,team1,team2,winner
 1,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
-2,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-3,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-4,2022,Delhi Capitals,Sunrisers Hyderabad,Sunrisers Hyderabad
+2,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+3,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+4,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
 5,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
-6,2023,Kolkata Knight Riders,Gujarat Titans,Kolkata Knight Riders
-7,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-8,2022,Delhi Capitals,Sunrisers Hyderabad,Sunrisers Hyderabad
-9,2023,Chennai Super Kings,Mumbai Indians,Mumbai Indians
-10,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-11,2022,Rajasthan Royals,Royal Challengers Bangalore,Rajasthan Royals
-12,2022,Delhi Capitals,Sunrisers Hyderabad,Delhi Capitals
+6,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+7,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+8,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+9,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+10,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+11,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+12,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
 13,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
-14,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-15,2022,Rajasthan Royals,Royal Challengers Bangalore,Rajasthan Royals
-16,2022,Delhi Capitals,Sunrisers Hyderabad,Sunrisers Hyderabad
-17,2023,Chennai Super Kings,Mumbai Indians,Mumbai Indians
-18,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-19,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-20,2022,Delhi Capitals,Sunrisers Hyderabad,Sunrisers Hyderabad
-21,2023,Chennai Super Kings,Mumbai Indians,Mumbai Indians
-22,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-23,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-24,2022,Delhi Capitals,Sunrisers Hyderabad,Delhi Capitals
-25,2023,Chennai Super Kings,Mumbai Indians,Mumbai Indians
-26,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-27,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-28,2022,Delhi Capitals,Sunrisers Hyderabad,Delhi Capitals
-29,2023,Chennai Super Kings,Mumbai Indians,Mumbai Indians
-30,2023,Kolkata Knight Riders,Gujarat Titans,Kolkata Knight Riders
-31,2022,Rajasthan Royals,Royal Challengers Bangalore,Rajasthan Royals
-32,2022,Delhi Capitals,Sunrisers Hyderabad,Delhi Capitals
-33,2023,Chennai Super Kings,Mumbai Indians,Mumbai Indians
-34,2023,Kolkata Knight Riders,Gujarat Titans,Kolkata Knight Riders
-35,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-36,2022,Delhi Capitals,Sunrisers Hyderabad,Sunrisers Hyderabad
-37,2023,Chennai Super Kings,Mumbai Indians,Mumbai Indians
-38,2023,Kolkata Knight Riders,Gujarat Titans,Kolkata Knight Riders
-39,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-40,2022,Delhi Capitals,Sunrisers Hyderabad,Sunrisers Hyderabad
-41,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
-42,2023,Kolkata Knight Riders,Gujarat Titans,Kolkata Knight Riders
-43,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-44,2022,Delhi Capitals,Sunrisers Hyderabad,Delhi Capitals
-45,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
-46,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-47,2022,Rajasthan Royals,Royal Challengers Bangalore,Rajasthan Royals
-48,2022,Delhi Capitals,Sunrisers Hyderabad,Sunrisers Hyderabad
-49,2023,Chennai Super Kings,Mumbai Indians,Mumbai Indians
-50,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-51,2022,Rajasthan Royals,Royal Challengers Bangalore,Rajasthan Royals
-52,2022,Delhi Capitals,Sunrisers Hyderabad,Delhi Capitals
-53,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
-54,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-55,2022,Rajasthan Royals,Royal Challengers Bangalore,Rajasthan Royals
-56,2022,Delhi Capitals,Sunrisers Hyderabad,Delhi Capitals
-57,2023,Chennai Super Kings,Mumbai Indians,Mumbai Indians
-58,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-59,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-60,2022,Delhi Capitals,Sunrisers Hyderabad,Delhi Capitals
-61,2023,Chennai Super Kings,Mumbai Indians,Mumbai Indians
-62,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-63,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-64,2022,Delhi Capitals,Sunrisers Hyderabad,Sunrisers Hyderabad
-65,2023,Chennai Super Kings,Mumbai Indians,Mumbai Indians
-66,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-67,2022,Rajasthan Royals,Royal Challengers Bangalore,Rajasthan Royals
-68,2022,Delhi Capitals,Sunrisers Hyderabad,Delhi Capitals
-69,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
-70,2023,Kolkata Knight Riders,Gujarat Titans,Gujarat Titans
-71,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-72,2022,Delhi Capitals,Sunrisers Hyderabad,Delhi Capitals
-73,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
-74,2023,Kolkata Knight Riders,Gujarat Titans,Kolkata Knight Riders
-75,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-76,2022,Delhi Capitals,Sunrisers Hyderabad,Sunrisers Hyderabad
-77,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
-78,2023,Kolkata Knight Riders,Gujarat Titans,Kolkata Knight Riders
-79,2022,Rajasthan Royals,Royal Challengers Bangalore,Royal Challengers Bangalore
-80,2022,Delhi Capitals,Sunrisers Hyderabad,Delhi Capitals
+14,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+15,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+16,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+17,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+18,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+19,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+20,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+21,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+22,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+23,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+24,2023,Chennai Super Kings,Mumbai Indians,Chennai Super Kings
+25,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+26,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+27,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+28,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+29,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+30,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+31,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+32,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+33,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+34,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+35,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+36,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+37,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+38,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+39,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+40,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+41,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+42,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+43,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+44,2023,Chennai Super Kings,Gujarat Titans,Chennai Super Kings
+45,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+46,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+47,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+48,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+49,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+50,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+51,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+52,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+53,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+54,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+55,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+56,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+57,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+58,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+59,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+60,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+61,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+62,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+63,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+64,2023,Mumbai Indians,Kolkata Knight Riders,Mumbai Indians
+65,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+66,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+67,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+68,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+69,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+70,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+71,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+72,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+73,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+74,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+75,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+76,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+77,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+78,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+79,2023,Gujarat Titans,Royal Challengers Bangalore,Gujarat Titans
+80,2023,Kolkata Knight Riders,Rajasthan Royals,Kolkata Knight Riders
+81,2023,Kolkata Knight Riders,Rajasthan Royals,Kolkata Knight Riders
+82,2023,Kolkata Knight Riders,Rajasthan Royals,Kolkata Knight Riders
+83,2023,Kolkata Knight Riders,Rajasthan Royals,Kolkata Knight Riders
+84,2023,Kolkata Knight Riders,Rajasthan Royals,Kolkata Knight Riders
+85,2023,Kolkata Knight Riders,Rajasthan Royals,Kolkata Knight Riders
+86,2023,Kolkata Knight Riders,Rajasthan Royals,Kolkata Knight Riders
+87,2023,Kolkata Knight Riders,Rajasthan Royals,Kolkata Knight Riders
+88,2023,Kolkata Knight Riders,Rajasthan Royals,Kolkata Knight Riders
+89,2023,Kolkata Knight Riders,Rajasthan Royals,Kolkata Knight Riders
+90,2023,Kolkata Knight Riders,Rajasthan Royals,Kolkata Knight Riders
+91,2023,Kolkata Knight Riders,Rajasthan Royals,Kolkata Knight Riders
+92,2023,Rajasthan Royals,Sunrisers Hyderabad,Rajasthan Royals
+93,2023,Rajasthan Royals,Sunrisers Hyderabad,Rajasthan Royals
+94,2023,Rajasthan Royals,Sunrisers Hyderabad,Rajasthan Royals
+95,2023,Rajasthan Royals,Sunrisers Hyderabad,Rajasthan Royals
+96,2023,Rajasthan Royals,Sunrisers Hyderabad,Rajasthan Royals
+97,2023,Rajasthan Royals,Sunrisers Hyderabad,Rajasthan Royals
+98,2023,Rajasthan Royals,Sunrisers Hyderabad,Rajasthan Royals
+99,2023,Rajasthan Royals,Sunrisers Hyderabad,Rajasthan Royals
+100,2023,Rajasthan Royals,Sunrisers Hyderabad,Rajasthan Royals
+101,2023,Rajasthan Royals,Sunrisers Hyderabad,Rajasthan Royals
+102,2023,Sunrisers Hyderabad,Delhi Capitals,Sunrisers Hyderabad
+103,2023,Sunrisers Hyderabad,Delhi Capitals,Sunrisers Hyderabad
+104,2023,Sunrisers Hyderabad,Delhi Capitals,Sunrisers Hyderabad
+105,2023,Sunrisers Hyderabad,Delhi Capitals,Sunrisers Hyderabad
+106,2023,Sunrisers Hyderabad,Delhi Capitals,Sunrisers Hyderabad
+107,2023,Sunrisers Hyderabad,Delhi Capitals,Sunrisers Hyderabad
+108,2023,Sunrisers Hyderabad,Delhi Capitals,Sunrisers Hyderabad
+109,2023,Sunrisers Hyderabad,Delhi Capitals,Sunrisers Hyderabad
